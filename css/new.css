@@ -1,0 +1,13 @@
+.exercise{
+    margin: 20px auto;
+    min-height: 100px;
+    background: whitesmoke;
+}
+.exercise{
+    padding: 10px;
+}
+.exercise table{
+    font-size: 18px;
+    width: 100%;
+    border: 1px solid grey;
+}
