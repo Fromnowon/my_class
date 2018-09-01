@@ -27,7 +27,7 @@
     </div>
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-        <button class="btn btn-primary">确认</button>
+        <button class="btn btn-primary psw_post">确认</button>
     </div>
 </div>
 </body>
