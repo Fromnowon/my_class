@@ -1,13 +1,14 @@
-.exercise{
-    margin: 20px auto;
-    min-height: 100px;
-    background: whitesmoke;
-}
-.exercise{
+.exercise {
+    margin: 10px auto;
     padding: 10px;
+    min-height: 100px;
 }
-.exercise table{
+
+.exercise table {
     font-size: 18px;
     width: 100%;
-    border: 1px solid grey;
+}
+
+.right_answer input {
+    box-shadow: 0px 0px 10px 2px orange;
 }
