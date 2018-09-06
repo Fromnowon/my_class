@@ -122,7 +122,7 @@ if ($_SESSION['validate'] != 1) {
         </div>
     </div>
     <div>
-        <button class="btn btn-primary btn-large pull-right">确认发布</button>
+        <button class="btn btn-primary btn-large pull-right publish">确认发布</button>
     </div>
     <br><br><br>
 </div>
