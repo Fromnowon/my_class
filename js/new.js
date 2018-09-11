@@ -77,4 +77,30 @@ $(function () {
                 data.push(content);
             }
         })
+        ajaxPost('text', '../Handler/handler.php?action=publish', {data: JSON.stringify(data)}, function (msg) {
+            if (msg == 'ok') {
+                alert('生成题组成功！');
+            } else {
+                alert(msg);
+            }
+        })
+    })
 })
+
+function ajaxPost(type, url, data, fun) {
+    $.ajax({
+        type: "POST",
+        dataType: type,
+        url: url,
+        data: data,
+        async: true,
+        success: function (msg) {
+            //console.log('success:' + msg);
+            fun(msg);
+        },
+        error: function (msg) {
+            alert('error');
+            console.log('error:' + msg);
+        }
+    });
+}
