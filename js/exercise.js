@@ -1,28 +1,35 @@
 $(function () {
-    ajaxPost('json', './Handler/handler.php?action=pull', {code: $('body').attr('code')}, function (msg) {
+    ajaxPost('json', '../Handler/handler.php?action=pull', {code: $('body').attr('code')}, function (msg) {
         $.each(msg, function (index, json) {
-            var exercise = '';
+            $('.insert_flag').before($('.default').clone().removeClass('q0').addClass('q' + (parseInt(index) + 1)));
+            var clone = $('.q' + (parseInt(index) + 1));
+            //填充数据
             $.each(json, function (count, item) {
-                //遍历题目数据
                 switch (count) {
                     case 'id': {
-                        exercise += "<div num='" + item + "'>" + item;
+                        //题号
+                        clone.find('.num').text(parseInt(item));
                         break;
                     }
                     case 'stem': {
-                        exercise += "<div>" + item + "</div>";
+                        //题干
+                        clone.find('.stem').text(item);
                         break;
                     }
                     case 'answer': {
-                        $.each(item, function (index, value) {
-                            exercise += "<div>" + index + ' . ' + value + "</div>";
+                        // console.log(item);
+                        // $.each(item, function (index_t, value) {
+                        //     clone.find('.answer_div').find('table').append(clone.find('.answer_default').clone().removeClass('answer_default')).find('input').attr('name','a'+index_t).next().text(value);
+                        // })
+                        clone.find('.answer_default').remove();
+                        $.each(item, function (index_t, value) {
+                            clone.find('.answer_div').find('table').append($('.default').find('.answer_default').clone().removeClass('answer_default')).find('input').eq(index_t).attr('name', 'a' + index).next().text(value);
                         })
                         break;
                     }
                 }
             })
-            exercise += "</div>";
-            $('.exercise').append(exercise);
+            clone.removeClass('hide default');
         })
     })
 })

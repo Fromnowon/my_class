@@ -1,0 +1,27 @@
+.exercise{
+    margin-top: 20px;
+}
+.exercise_content{
+    font-size: 22px;
+    font-weight: bold;
+}
+.stem{
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: pre-wrap !important;
+}
+.answer_div label {
+    font-size: 18px;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: pre-wrap !important;
+    margin-top: 6px;
+    margin-left: 20px;
+}
+
+.answer {
+    height: 16px;
+    vertical-align: text-top;
+    margin-top: 0;
+    transform: scale(1.2);
+}
