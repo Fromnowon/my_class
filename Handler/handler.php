@@ -31,35 +31,71 @@ switch ($action) {
             pull($conn);
             break;
         }
+    case 'post':
+        {
+            post($conn);
+            break;
+        }
+    case 'analysis':
+        {
+            analysis($conn);
+            break;
+        }
     default:
         break;
 }
+
+function analysis($conn)
+{
+    $code = $_POST['code'];
+    $result = select($conn, 'answer', "code='{$code}'")[0];
+    $data = json_decode($result['data']);
+    $total = $result['total'];
+    echo json_encode(array('total' => $total, 'data' => $data));
+    mysqli_close($conn);
+}
+
+function post($conn)
+{
+    $data = json_decode($_POST['data'], true);
+    $code = $data[0]['code'];//题组编号
+    $name = $data[0]['name'];//提交用户姓名
+    $ip = $data[0]['ip'];//用户ip
+    //入库，以“题对人”的形式，免数组索引
+    $result = select($conn, 'answer', "code='{$code}'")[0];
+    if (count($result) == 0) {
+        //无记录，则插入
+        //格式化数据
+        $answer_arr = array();
+        foreach ($data[1] as $item) {
+            array_push($answer_arr, [array('ip' => $ip, 'name' => $name, 'choose' => $item['choose'])]);
+        }
+        add($conn, 'answer', [$code, 1, json_encode($answer_arr, JSON_UNESCAPED_UNICODE)]);//填写参数防止中文转码
+        echo 'ok';
+    } else {
+        //已有记录，进行更新
+        $answer_arr_e = json_decode(select($conn, 'answer', "code='{$code}'")[0]['data']);
+        foreach ($data[1] as $key => $value) {
+            array_push($answer_arr_e[$key], array('ip' => $ip, 'name' => $name, 'choose' => $value['choose']));
+        }
+        update($conn, 'answer', "data='" . json_encode($answer_arr_e, JSON_UNESCAPED_UNICODE) . "',total=total+1", "code='{$code}'");
+        echo 'ok';
+    }
+    mysqli_close($conn);
+}
+
 function pull($conn)
 {
     $code = $_POST['code'];
-    $result = all($conn, $code, '');
-    for ($i = 0; $i < count($result); $i++) {
-        $result[$i]['answer'] = json_decode($result[$i]['answer']);
-    }
-    echo json_encode($result);
+    $result = select($conn, 'exercise', "code='{$code}'")[0]['data'];
+    echo $result;
+    mysqli_close($conn);
 }
 
 function publish($conn)
 {
-    $data = json_decode($_POST['data'], true);//若无参数true则会被解析为对象，而非数组
-    $num = (int)(select($conn, 'total', 'id=1')[0]['count']);
-    $sql = "CREATE TABLE q" . $num . " 
-(
-id int NOT NULL AUTO_INCREMENT,
-PRIMARY KEY(id),
-stem text,
-answer text,
-right_answer varchar(6) DEFAULT NULL
-)";
-    mysqli_query($conn, $sql);//生成题组表
-    foreach ($data as $exercise) {//向表中添加题目
-        add($conn, 'q' . $num, [$exercise['stem'], json_encode($exercise['answer']), $exercise['right_answer']]);
-    }
+    $code = 'q' . select($conn, 'total', 'id=1')[0]['count'];
+    add($conn, 'exercise', [$code, $_POST['total'], $_POST['data']]);
     update($conn, 'total', 'count=count+1', 'id=1');
     echo 'ok';
     mysqli_close($conn);
@@ -98,33 +134,21 @@ function add($conn, $table, $arr)
     $str = implode("','", $str);
     $sql = "insert into `$table` values(DEFAULT ,'$str')";
     $res = mysqli_query($conn, $sql);
-    if ($res && mysqli_affected_rows($conn) > 0) {
-        return 'success';
-    } else {
-        return $sql;
-    }
+    return $sql;
 }
 
 function delete($conn, $table, $where)
 {
     $sql = "delete from `$table` where $where";
     $res = mysqli_query($conn, $sql);
-    if ($res && mysqli_affected_rows($conn) > 0) {
-        return 'success';
-    } else {
-        return $sql;
-    }
+    return $sql;
 }
 
 function update($conn, $table, $update, $where)
 {
     $sql = "update `$table` set $update where $where";
     $res = mysqli_query($conn, $sql);
-    if ($res) {
-        return 'success';
-    } else {
-        return $sql;
-    }
+    return $sql;
 }
 
 //字符串转数组

@@ -77,7 +77,11 @@ $(function () {
                 data.push(content);
             }
         })
-        ajaxPost('text', '../Handler/handler.php?action=publish', {data: JSON.stringify(data)}, function (msg) {
+        ajaxPost('text', '../Handler/handler.php?action=publish', {
+            data: JSON.stringify(data),
+            total: $('.exercise_total').text()
+        }, function (msg) {
+            console.log(msg);
             if (msg == 'ok') {
                 alert('生成题组成功！');
             } else {

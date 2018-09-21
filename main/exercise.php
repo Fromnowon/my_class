@@ -13,9 +13,13 @@
     <script src="../js/bootstrap.js"></script>
     <script src="../js/exercise.js"></script>
 </head>
-<body code="<?php echo $_GET['code']; ?>">
+<body code="<?php
+if (isset($_GET['code'])){
+    echo $_GET['code'];
+}else echo 'null';
+?>" ip="<?php echo $_SERVER['REMOTE_ADDR'];?>">
 <div class="container">
-    <div class="exercise default hide q0">
+    <div class="exercise default hide e0">
         <div class="exercise_content">
             <span class="num">0</span>.<span class="stem">stem text</span>
         </div>
@@ -30,6 +34,25 @@
         </div>
     </div>
     <div class="insert_flag hide"></div>
+    <div>
+        <button class="btn btn-primary btn-large exercise_post hide" style="margin-top: 20px">提交</button>
+    </div>
+
+</div>
+<div id="post_name" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-body">
+        <div class="form-horizontal" style="padding-top: 10px">
+            <label>
+                请输入姓名：
+                <input type="text" class="post_name_input" placeholder="如：2101张三">
+            </label>
+        </div>
+        <span style="color: darkgray">名字将会用于成绩数据统计</span>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+        <button class="btn btn-primary post" disabled="disabled">确认</button>
+    </div>
 </div>
 </body>
 </html>
