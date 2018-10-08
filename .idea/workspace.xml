@@ -14,17 +14,13 @@
       <file leaf-file-name="handler.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Handler/handler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-286">
+            <state relative-caret-position="1122">
               <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
               <folding>
-                <element signature="n#select#0;n#!!top" expanded="false" />
-                <element signature="n#all#0;n#!!top" expanded="false" />
-                <element signature="n#add#0;n#!!top" expanded="false" />
-                <element signature="n#delete#0;n#!!top" expanded="false" />
-                <element signature="n#update#0;n#!!top" expanded="false" />
-                <element signature="n#stringToArr#0;n#!!top" expanded="false" />
-                <element signature="n#stringArrPop#0;n#!!top" expanded="false" />
-                <element signature="n#inStringArr#0;n#!!top" expanded="false" />
+                <marker date="1537520423754" expanded="true" signature="2774:2803" ph="select * fro... ${$table}" />
+                <marker date="1537520423754" expanded="true" signature="3036:3060" ph="select * fro... ${$table}" />
+                <marker date="1537520423754" expanded="true" signature="3404:3448" ph="insert into `${$table}`... " />
+                <marker date="1537520423754" expanded="true" signature="3562:3589" ph="delete from `${$table}`... " />
                 <marker date="1537520423754" expanded="true" signature="3718:3752" ph="update `${$table}`... " />
               </folding>
             </state>
@@ -34,7 +30,7 @@
       <file leaf-file-name="new.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/new.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
+            <state relative-caret-position="1826">
               <caret line="83" column="29" lean-forward="false" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
               <folding />
             </state>
@@ -44,7 +40,7 @@
       <file leaf-file-name="new.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/new.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
+            <state relative-caret-position="550">
               <caret line="25" column="69" lean-forward="false" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="69" />
               <folding />
             </state>
@@ -54,7 +50,7 @@
       <file leaf-file-name="exercise.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/exercise.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
+            <state relative-caret-position="1342">
               <caret line="61" column="69" lean-forward="false" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="69" />
               <folding>
                 <element signature="n#!!block;n#ajaxPost#0" expanded="false" />
@@ -66,11 +62,9 @@
       <file leaf-file-name="exercise.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/exercise.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="19" selection-end-column="3" />
-              <folding>
-                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="44">
+              <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -78,8 +72,8 @@
       <file leaf-file-name="analysis.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/analysis.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+            <state relative-caret-position="58">
+              <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -88,10 +82,10 @@
       <file leaf-file-name="analysis.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/analysis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="56" lean-forward="false" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
+            <state relative-caret-position="66">
+              <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
               <folding>
-                <element signature="e#255#1378#0" expanded="false" />
+                <element signature="e#279#1408#0" expanded="false" />
                 <element signature="n#!!block;n#ajaxPost#0" expanded="false" />
               </folding>
             </state>
@@ -166,7 +160,7 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -179,36 +173,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="my_class" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my_class" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="my_class" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my_class" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Handler" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="my_class" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my_class" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="my_class" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my_class" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="main" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -276,11 +241,14 @@
       <workItem from="1537350728603" duration="7000" />
       <workItem from="1537401677954" duration="6730000" />
       <workItem from="1537491448020" duration="11604000" />
+      <workItem from="1538957323404" duration="7000" />
+      <workItem from="1538982873185" duration="3201000" />
+      <workItem from="1538996404570" duration="6120000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122960000" />
+    <option name="totallyTimeSpent" value="132288000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -325,14 +293,10 @@
         <state relative-caret-position="550">
           <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
           <folding>
-            <element signature="n#select#0;n#!!top" expanded="false" />
-            <element signature="n#all#0;n#!!top" expanded="false" />
-            <element signature="n#add#0;n#!!top" expanded="false" />
-            <element signature="n#delete#0;n#!!top" expanded="false" />
-            <element signature="n#update#0;n#!!top" expanded="false" />
-            <element signature="n#stringToArr#0;n#!!top" expanded="false" />
-            <element signature="n#stringArrPop#0;n#!!top" expanded="false" />
-            <element signature="n#inStringArr#0;n#!!top" expanded="false" />
+            <marker date="1537520423754" expanded="true" signature="2774:2803" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3036:3060" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3404:3448" ph="insert into `${$table}`... " />
+            <marker date="1537520423754" expanded="true" signature="3562:3589" ph="delete from `${$table}`... " />
             <marker date="1537520423754" expanded="true" signature="3718:3752" ph="update `${$table}`... " />
           </folding>
         </state>
@@ -373,14 +337,10 @@
         <state relative-caret-position="550">
           <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
           <folding>
-            <element signature="n#select#0;n#!!top" expanded="false" />
-            <element signature="n#all#0;n#!!top" expanded="false" />
-            <element signature="n#add#0;n#!!top" expanded="false" />
-            <element signature="n#delete#0;n#!!top" expanded="false" />
-            <element signature="n#update#0;n#!!top" expanded="false" />
-            <element signature="n#stringToArr#0;n#!!top" expanded="false" />
-            <element signature="n#stringArrPop#0;n#!!top" expanded="false" />
-            <element signature="n#inStringArr#0;n#!!top" expanded="false" />
+            <marker date="1537520423754" expanded="true" signature="2774:2803" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3036:3060" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3404:3448" ph="insert into `${$table}`... " />
+            <marker date="1537520423754" expanded="true" signature="3562:3589" ph="delete from `${$table}`... " />
             <marker date="1537520423754" expanded="true" signature="3718:3752" ph="update `${$table}`... " />
           </folding>
         </state>
@@ -419,14 +379,10 @@
         <state relative-caret-position="440">
           <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
           <folding>
-            <element signature="n#select#0;n#!!top" expanded="false" />
-            <element signature="n#all#0;n#!!top" expanded="false" />
-            <element signature="n#add#0;n#!!top" expanded="false" />
-            <element signature="n#delete#0;n#!!top" expanded="false" />
-            <element signature="n#update#0;n#!!top" expanded="false" />
-            <element signature="n#stringToArr#0;n#!!top" expanded="false" />
-            <element signature="n#stringArrPop#0;n#!!top" expanded="false" />
-            <element signature="n#inStringArr#0;n#!!top" expanded="false" />
+            <marker date="1537520423754" expanded="true" signature="2774:2803" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3036:3060" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3404:3448" ph="insert into `${$table}`... " />
+            <marker date="1537520423754" expanded="true" signature="3562:3589" ph="delete from `${$table}`... " />
             <marker date="1537520423754" expanded="true" signature="3718:3752" ph="update `${$table}`... " />
           </folding>
         </state>
@@ -474,14 +430,10 @@
         <state relative-caret-position="440">
           <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
           <folding>
-            <element signature="n#select#0;n#!!top" expanded="false" />
-            <element signature="n#all#0;n#!!top" expanded="false" />
-            <element signature="n#add#0;n#!!top" expanded="false" />
-            <element signature="n#delete#0;n#!!top" expanded="false" />
-            <element signature="n#update#0;n#!!top" expanded="false" />
-            <element signature="n#stringToArr#0;n#!!top" expanded="false" />
-            <element signature="n#stringArrPop#0;n#!!top" expanded="false" />
-            <element signature="n#inStringArr#0;n#!!top" expanded="false" />
+            <marker date="1537520423754" expanded="true" signature="2774:2803" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3036:3060" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3404:3448" ph="insert into `${$table}`... " />
+            <marker date="1537520423754" expanded="true" signature="3562:3589" ph="delete from `${$table}`... " />
             <marker date="1537520423754" expanded="true" signature="3718:3752" ph="update `${$table}`... " />
           </folding>
         </state>
@@ -528,14 +480,10 @@
         <state relative-caret-position="550">
           <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
           <folding>
-            <element signature="n#select#0;n#!!top" expanded="false" />
-            <element signature="n#all#0;n#!!top" expanded="false" />
-            <element signature="n#add#0;n#!!top" expanded="false" />
-            <element signature="n#delete#0;n#!!top" expanded="false" />
-            <element signature="n#update#0;n#!!top" expanded="false" />
-            <element signature="n#stringToArr#0;n#!!top" expanded="false" />
-            <element signature="n#stringArrPop#0;n#!!top" expanded="false" />
-            <element signature="n#inStringArr#0;n#!!top" expanded="false" />
+            <marker date="1537520423754" expanded="true" signature="2774:2803" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3036:3060" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3404:3448" ph="insert into `${$table}`... " />
+            <marker date="1537520423754" expanded="true" signature="3562:3589" ph="delete from `${$table}`... " />
             <marker date="1537520423754" expanded="true" signature="3718:3752" ph="update `${$table}`... " />
           </folding>
         </state>
@@ -567,14 +515,10 @@
         <state relative-caret-position="330">
           <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding>
-            <element signature="n#select#0;n#!!top" expanded="false" />
-            <element signature="n#all#0;n#!!top" expanded="false" />
-            <element signature="n#add#0;n#!!top" expanded="false" />
-            <element signature="n#delete#0;n#!!top" expanded="false" />
-            <element signature="n#update#0;n#!!top" expanded="false" />
-            <element signature="n#stringToArr#0;n#!!top" expanded="false" />
-            <element signature="n#stringArrPop#0;n#!!top" expanded="false" />
-            <element signature="n#inStringArr#0;n#!!top" expanded="false" />
+            <marker date="1537520423754" expanded="true" signature="2774:2803" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3036:3060" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3404:3448" ph="insert into `${$table}`... " />
+            <marker date="1537520423754" expanded="true" signature="3562:3589" ph="delete from `${$table}`... " />
             <marker date="1537520423754" expanded="true" signature="3718:3752" ph="update `${$table}`... " />
           </folding>
         </state>
@@ -599,14 +543,10 @@
         <state relative-caret-position="210">
           <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
           <folding>
-            <element signature="n#select#0;n#!!top" expanded="false" />
-            <element signature="n#all#0;n#!!top" expanded="false" />
-            <element signature="n#add#0;n#!!top" expanded="false" />
-            <element signature="n#delete#0;n#!!top" expanded="false" />
-            <element signature="n#update#0;n#!!top" expanded="false" />
-            <element signature="n#stringToArr#0;n#!!top" expanded="false" />
-            <element signature="n#stringArrPop#0;n#!!top" expanded="false" />
-            <element signature="n#inStringArr#0;n#!!top" expanded="false" />
+            <marker date="1537520423754" expanded="true" signature="2774:2803" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3036:3060" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3404:3448" ph="insert into `${$table}`... " />
+            <marker date="1537520423754" expanded="true" signature="3562:3589" ph="delete from `${$table}`... " />
             <marker date="1537520423754" expanded="true" signature="3718:3752" ph="update `${$table}`... " />
           </folding>
         </state>
@@ -692,7 +632,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/exercise.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
+        <state relative-caret-position="1342">
           <caret line="61" column="69" lean-forward="false" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="69" />
           <folding>
             <element signature="n#!!block;n#ajaxPost#0" expanded="false" />
@@ -704,7 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="21" column="279073" lean-forward="false" selection-start-line="21" selection-start-column="279073" selection-end-line="21" selection-end-column="279073" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -716,19 +655,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/exercise.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="19" selection-end-column="3" />
-          <folding>
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/new.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
+        <state relative-caret-position="1826">
           <caret line="83" column="29" lean-forward="false" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
           <folding />
         </state>
@@ -736,44 +665,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/new.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
+        <state relative-caret-position="550">
           <caret line="25" column="69" lean-forward="false" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/analysis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Handler/handler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-286">
+        <state relative-caret-position="1122">
           <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
           <folding>
-            <element signature="n#select#0;n#!!top" expanded="false" />
-            <element signature="n#all#0;n#!!top" expanded="false" />
-            <element signature="n#add#0;n#!!top" expanded="false" />
-            <element signature="n#delete#0;n#!!top" expanded="false" />
-            <element signature="n#update#0;n#!!top" expanded="false" />
-            <element signature="n#stringToArr#0;n#!!top" expanded="false" />
-            <element signature="n#stringArrPop#0;n#!!top" expanded="false" />
-            <element signature="n#inStringArr#0;n#!!top" expanded="false" />
+            <marker date="1537520423754" expanded="true" signature="2774:2803" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3036:3060" ph="select * fro... ${$table}" />
+            <marker date="1537520423754" expanded="true" signature="3404:3448" ph="insert into `${$table}`... " />
+            <marker date="1537520423754" expanded="true" signature="3562:3589" ph="delete from `${$table}`... " />
             <marker date="1537520423754" expanded="true" signature="3718:3752" ph="update `${$table}`... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/analysis.js">
+    <entry file="file://$PROJECT_DIR$/main/exercise.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
-          <caret line="2" column="56" lean-forward="false" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
+          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/analysis.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/analysis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
           <folding>
-            <element signature="e#255#1378#0" expanded="false" />
+            <element signature="e#279#1408#0" expanded="false" />
             <element signature="n#!!block;n#ajaxPost#0" expanded="false" />
           </folding>
         </state>

@@ -1,6 +1,7 @@
 $(function () {
     //拉取题目数据
     ajaxPost('json', '../Handler/handler.php?action=pull', {code: $('body').attr('code')}, function (msg) {
+        //拿到备选答案数量、标准答案
 
     })
 
@@ -11,13 +12,13 @@ $(function () {
             text: '结果统计'
         },
         xAxis: {
-            data: ["example", "example", "example"]
+            data: ["答案1", "答案2", "答案3"]
         },
         yAxis: {},
         series: [{
             type: 'bar',
             //data: [{value: 10, itemStyle: {color: 'green'}}, 20, 36, 10],
-            data: [],
+            data: [0, 0, 0],//初始化时应决定数量
             itemStyle: {
                 normal: {
                     label: {
@@ -48,27 +49,33 @@ $(function () {
         }]
     });
     myChart.showLoading();
-    var loading_flag = 1;
     //每3s拉取一次数据
-    pull_analysis();//setInterval第一次执行也需要等待，故先执行一次
+    pull_analysis(0);//setInterval第一次执行也需要等待，故先执行一次
     setInterval(function () {
-        pull_analysis();
+        pull_analysis(0);
     }, 3000);
 
-    function pull_analysis() {
+    function pull_analysis(number) {
         ajaxPost('json', '../Handler/handler.php?action=analysis', {code: $('body').attr('code')}, function (msg) {
             console.log(msg['data']);
-            if (loading_flag) myChart.hideLoading();
-            loading_flag = 0;//避免重复调用hideLoading
-
-            myChart.setOption({
-                xAxis: {
-                    data: ["答案1", "答案2", "答案3"]
-                },
-                series: [{
-                    data: [{value: 10, itemStyle: {color: 'green'}}, 20, 36]
-                }]
-            });
+            //填充数据
+            var num = parseInt($('.result').attr('num'));//已统计的答案数
+            var flag = 0;//更新标记
+            var data = myChart.getOption().series[0].data;//获取旧数据
+            while (num < msg['data'][number].length) {
+                flag = 1;
+                data[msg['data'][number][num]['choose']]++;//统计数+1
+                num++;
+            }
+            if (flag) {
+                myChart.setOption({
+                    series: [{
+                        data: data
+                    }]
+                });
+                myChart.hideLoading();
+            }
+            $('.result').attr('num', num);
         })
     }
 });

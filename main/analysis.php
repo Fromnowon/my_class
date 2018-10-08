@@ -19,5 +19,6 @@ if (isset($_GET['code'])) {
     echo $_GET['code'];
 } else echo 'null';
 ?>">
+<div class="result" style="width: 400px;height: 300px;" num="0"></div>
 </body>
 </html>
