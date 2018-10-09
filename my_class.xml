@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.6.5.2
+- https://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: 2018-10-09 11:37:35
+- 服务器版本： 10.1.21-MariaDB
+- PHP Version: 5.6.30
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="my_class" collation="utf8_general_ci" charset="utf8">
+            <pma:table name="answer">
+                CREATE TABLE `answer` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `code` varchar(60) NOT NULL,
+                  `total` int(11) NOT NULL DEFAULT '0',
+                  `data` text NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="exercise">
+                CREATE TABLE `exercise` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `code` varchar(32) NOT NULL COMMENT '题组编号',
+                  `total` int(11) NOT NULL COMMENT '题目数',
+                  `title` varchar(64) NOT NULL DEFAULT '无标题',
+                  `data` text NOT NULL,
+                  `creat_time` varchar(32) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="total">
+                CREATE TABLE `total` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `count` int(11) NOT NULL DEFAULT '0',
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'my_class'
+    -->
+    <database name="my_class">
+        <!-- 表 answer -->
+        <table name="answer">
+            <column name="id">1</column>
+            <column name="code">q0</column>
+            <column name="total">23</column>
+            <column name="data">[[{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;333333&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sssss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;ss&quot;,&quot;choose&quot;:0},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;ss&quot;,&quot;choose&quot;:0},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;ss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;ss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;ss&quot;,&quot;choose&quot;:0},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:0},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;test&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;test&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;test&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss222&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss222&quot;,&quot;choose&quot;:1}],[{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:0},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;333333&quot;,&quot;choose&quot;:0},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sssss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;ss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;ss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;ss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;ss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;ss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;test&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;test&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;test&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss222&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;sss222&quot;,&quot;choose&quot;:2}]]</column>
+        </table>
+        <table name="answer">
+            <column name="id">2</column>
+            <column name="code">q1</column>
+            <column name="total">2</column>
+            <column name="data">[[{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;我自己&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;他&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;他&quot;,&quot;choose&quot;:1}],[{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;我自己&quot;,&quot;choose&quot;:0},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;他&quot;,&quot;choose&quot;:0},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;他&quot;,&quot;choose&quot;:0}]]</column>
+        </table>
+        <!-- 表 exercise -->
+        <table name="exercise">
+            <column name="id">1</column>
+            <column name="code">q0</column>
+            <column name="total">2</column>
+            <column name="title">无标题</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;这是测试1&quot;,&quot;answer&quot;:[&quot;答案1&quot;,&quot;答案2&quot;]},{&quot;num&quot;:&quot;2&quot;,&quot;stem&quot;:&quot;这是测试2&quot;,&quot;right_answer&quot;:&quot;1&quot;,&quot;answer&quot;:[&quot;答案1&quot;,&quot;答案2&quot;,&quot;答案3&quot;]}]</column>
+            <column name="creat_time">2018-06-22 10:15:14</column>
+        </table>
+        <table name="exercise">
+            <column name="id">2</column>
+            <column name="code">q1</column>
+            <column name="total">2</column>
+            <column name="title">无标题</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;111111111111111111111111111111111111&quot;,&quot;answer&quot;:[&quot;122222222222222222222222&quot;,&quot;23333333333333333333333333333333&quot;]},{&quot;num&quot;:&quot;2&quot;,&quot;stem&quot;:&quot;4444444444444444444444444444&quot;,&quot;answer&quot;:[&quot;5555555555555555555&quot;,&quot;566666666666666666666&quot;]}]</column>
+            <column name="creat_time">2018-09-22 10:15:14</column>
+        </table>
+        <table name="exercise">
+            <column name="id">3</column>
+            <column name="code">q2</column>
+            <column name="total">2</column>
+            <column name="title">无标题</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;,&quot;answer&quot;:[&quot;aaaa&quot;,&quot;aaaaa&quot;]},{&quot;num&quot;:&quot;2&quot;,&quot;stem&quot;:&quot;2ssssssssssssssssssssssssssssssssssssssssssssssssssssssss&quot;,&quot;answer&quot;:[&quot;sssssss&quot;,&quot;ssssss&quot;]}]</column>
+            <column name="creat_time">2018-10-09 17:09:33</column>
+        </table>
+        <!-- 表 total -->
+        <table name="total">
+            <column name="id">1</column>
+            <column name="count">3</column>
+        </table>
+    </database>
+</pma_xml_export>

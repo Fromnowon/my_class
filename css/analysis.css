@@ -1,3 +1,10 @@
 .result {
     margin: 10px;
 }
+.container{
+    margin-top: 20px;
+}
+.exercise_content{
+    padding: 10px;
+    background-color: whitesmoke;
+}

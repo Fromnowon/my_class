@@ -19,6 +19,13 @@ if (isset($_GET['code'])) {
     echo $_GET['code'];
 } else echo 'null';
 ?>">
-<div class="result" style="width: 400px;height: 300px;" num="0"></div>
+<div class="container">
+    <div class="hide default">
+        <div class="exercise_content">
+        </div>
+        <div class="result" style="width: 200px;height: 300px;" num="0"></div>
+        <hr>
+    </div>
+</div>
 </body>
 </html>

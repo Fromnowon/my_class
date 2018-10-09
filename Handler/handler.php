@@ -8,7 +8,6 @@
 include 'conn.php';
 $password = 'lbgz2012';//预设密码
 
-
 $action = $_GET['action'];
 switch ($action) {
     case 'validate':
@@ -41,8 +40,20 @@ switch ($action) {
             analysis($conn);
             break;
         }
+    case 'history':
+        {
+            history($conn);
+            break;
+        }
     default:
         break;
+}
+function history($conn)
+{
+    $result=all($conn,'exercise','');
+    print_r($result);
+    //echo $result;
+    mysqli_close($conn);
 }
 
 function analysis($conn)
@@ -95,7 +106,8 @@ function pull($conn)
 function publish($conn)
 {
     $code = 'q' . select($conn, 'total', 'id=1')[0]['count'];
-    add($conn, 'exercise', [$code, $_POST['total'], $_POST['data']]);
+    $date = date('Y-m-d H:i:s');
+    add($conn, 'exercise', [$code, $_POST['total'], $_POST['data'], $date]);
     update($conn, 'total', 'count=count+1', 'id=1');
     echo 'ok';
     mysqli_close($conn);

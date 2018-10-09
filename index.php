@@ -15,7 +15,7 @@
 <div class="container" style="padding-top: 15%">
     <div class="text-center"><button class="btn btn-primary btn-large new">发布题组</button></div>
     <br><br>
-    <div class="text-center"><a href="#">历史记录</a></div>
+    <div class="text-center"><a href="javascript:void(0)" class="history_btn">历史记录</a></div>
 </div>
 <div id="psw" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
@@ -28,6 +28,18 @@
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
         <button class="btn btn-primary" disabled>确认</button>
+    </div>
+</div>
+<div id="history" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">已发布题组</h3>
+    </div>
+    <div class="modal-body history_body">
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
     </div>
 </div>
 </body>
