@@ -50,9 +50,10 @@ switch ($action) {
 }
 function history($conn)
 {
-    $result=all($conn,'exercise','');
-    print_r($result);
-    //echo $result;
+    //后台分页，每次只拉取10条记录
+    $start = ($_POST['page'] - 1) * 10;
+    $result = all($conn, 'exercise', "limit {$start},10");
+    echo json_encode($result, JSON_UNESCAPED_UNICODE);
     mysqli_close($conn);
 }
 
@@ -62,7 +63,7 @@ function analysis($conn)
     $result = select($conn, 'answer', "code='{$code}'")[0];
     $data = json_decode($result['data']);
     $total = $result['total'];
-    echo json_encode(array('total' => $total, 'data' => $data));
+    echo json_encode(array('total' => $total, 'data' => $data), JSON_UNESCAPED_UNICODE);
     mysqli_close($conn);
 }
 
@@ -98,8 +99,11 @@ function post($conn)
 function pull($conn)
 {
     $code = $_POST['code'];
-    $result = select($conn, 'exercise', "code='{$code}'")[0]['data'];
-    echo $result;
+    $r=select($conn, 'exercise', "code='{$code}'")[0];
+    $result=[];
+    array_push($result,$r['data']);
+    array_push($result,$r['title']);
+    echo json_encode($result,JSON_UNESCAPED_UNICODE);
     mysqli_close($conn);
 }
 
@@ -107,7 +111,7 @@ function publish($conn)
 {
     $code = 'q' . select($conn, 'total', 'id=1')[0]['count'];
     $date = date('Y-m-d H:i:s');
-    add($conn, 'exercise', [$code, $_POST['total'], $_POST['data'], $date]);
+    add($conn, 'exercise', [$code, $_POST['total'], $_POST['title'], $_POST['data'], $date]);
     update($conn, 'total', 'count=count+1', 'id=1');
     echo 'ok';
     mysqli_close($conn);

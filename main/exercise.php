@@ -14,11 +14,17 @@
     <script src="../js/exercise.js"></script>
 </head>
 <body code="<?php
-if (isset($_GET['code'])){
+if (isset($_GET['code'])) {
     echo $_GET['code'];
-}else echo 'null';
-?>" ip="<?php echo $_SERVER['REMOTE_ADDR'];?>">
+} else echo 'null';
+?>" ip="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
 <div class="container">
+    <div style="margin-top: 20px">
+        <span class="title" style="font-size: 28px;font-weight: bold"></span>
+        &nbsp;&nbsp;&nbsp;
+        <a href="javascript:void(0)" onclick="window.opener=null;window.close()">关闭页面</a>
+    </div>
+    <br>
     <div class="exercise default hide e0">
         <div class="exercise_content">
             <span class="num">0</span>.<span class="stem">stem text</span>
@@ -27,7 +33,8 @@ if (isset($_GET['code'])){
             <table>
                 <tr class="answer_tr answer_default">
                     <td>
-                        <label><input style="margin-right: 10px" class="answer" type="radio"><span>answer text</span></label>
+                        <label><input style="margin-right: 10px" class="answer"
+                                      type="radio"><span>answer text</span></label>
                     </td>
                 </tr>
             </table>
@@ -39,7 +46,8 @@ if (isset($_GET['code'])){
     </div>
 
 </div>
-<div id="post_name" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="post_name" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
     <div class="modal-body">
         <div class="form-horizontal" style="padding-top: 10px">
             <label>
@@ -51,7 +59,7 @@ if (isset($_GET['code'])){
     </div>
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-        <button class="btn btn-primary post" disabled="disabled">确认</button>
+        <button class="btn btn-primary post disable_btn" disabled="disabled">确认</button>
     </div>
 </div>
 </body>

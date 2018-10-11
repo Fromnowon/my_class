@@ -23,7 +23,11 @@ if ($_SESSION['validate'] != 1) {
 <body>
 <div class="container">
     <div style="margin-top: 20px">
-        <p style="font-weight: bold">题目数量：<span class="exercise_total">1</span></p>
+        <span style="font-size: 26px">题组名称：</span>
+        <input type="text" class="title">
+        <br>
+        <br>
+        <p style="font-weight: bold">题目数量：<span class="exercise_total" style="color: green">1</span></p>
     </div>
     <div class="exercise">
         <div class="exercise_default exercise_div" style="display:none;margin-bottom:20px;padding: 10px">

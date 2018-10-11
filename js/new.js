@@ -79,7 +79,8 @@ $(function () {
         })
         ajaxPost('text', '../Handler/handler.php?action=publish', {
             data: JSON.stringify(data),
-            total: $('.exercise_total').text()
+            total: $('.exercise_total').text(),
+            title: $('.title').val()
         }, function (msg) {
             console.log(msg);
             if (msg == 'ok') {

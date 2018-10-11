@@ -1,7 +1,8 @@
 $(function () {
     //拉取题目数据
     ajaxPost('json', '../Handler/handler.php?action=pull', {code: $('body').attr('code')}, function (msg) {
-        $.each(msg, function (index, json) {
+        $('.title').text(msg[1]);
+        $.each(JSON.parse(msg[0]), function (index, json) {
             $('.insert_flag').before($('.default').clone().removeClass('e0').addClass('e' + (parseInt(index) + 1)));
             var clone = $('.e' + (parseInt(index) + 1));
             clone.find('.num').text(parseInt(index) + 1);
@@ -75,7 +76,11 @@ $(function () {
     $('.post_name_input').bind('keyup', function () {
         if ($(this).val().length > 0) {
             $('.post').removeAttr('disabled');
-        } else $('.post').attr('disabled', true);
+            $('.post').removeClass('disable_btn');
+        } else {
+            $('.post').attr('disabled', true).addClass('disable_btn');
+            $('.post').addClass('disable_btn');
+        }
     })
 
     //数据监测

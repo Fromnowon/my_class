@@ -1,15 +1,18 @@
-.exercise{
+.exercise {
     margin-top: 20px;
 }
-.exercise_content{
+
+.exercise_content {
     font-size: 22px;
     font-weight: bold;
 }
-.stem{
+
+.stem {
     word-wrap: break-word;
     word-break: break-all;
     white-space: pre-wrap !important;
 }
+
 .answer_div label {
     font-size: 18px;
     word-wrap: break-word;
@@ -24,4 +27,8 @@
     vertical-align: text-top;
     margin-top: 0;
     transform: scale(1.2);
+}
+
+.disable_btn:hover {
+    cursor: no-drop;
 }
