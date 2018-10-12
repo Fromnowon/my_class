@@ -53,14 +53,14 @@
                 <td>加载中...</td>
             </tr>
         </table>
-        <div style="text-align: center;font-size: 18px" class="page_btn hide">
+        <div style="text-align: center;font-size: 18px" class="page_btn hide" value="1">
             <div class="form-horizontal pull-right">
-                <a href="#">上一页</a>
+                <span class="page_prev">上一页</span>
                 &nbsp;
-                <a href="#">下一页</a>
+                <a href="javascript:void(0)" class="page_next">下一页</a>
                 &nbsp;&nbsp;&nbsp;
                 <input type="text" style="width: 30px">
-                <button class="btn">跳转</button>
+                <button class="btn page_jump">跳转</button>
             </div>
         </div>
     </div>

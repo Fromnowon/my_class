@@ -50,9 +50,10 @@ switch ($action) {
 }
 function history($conn)
 {
-    //后台分页，每次只拉取10条记录
-    $start = ($_POST['page'] - 1) * 10;
-    $result = all($conn, 'exercise', "limit {$start},10");
+    //后台分页，每次只拉取n条记录
+    $n = 5;
+    $start = ($_POST['page'] - 1) * $n;
+    $result = all($conn, 'exercise', "limit {$start},{$n}");
     echo json_encode($result, JSON_UNESCAPED_UNICODE);
     mysqli_close($conn);
 }
@@ -99,11 +100,11 @@ function post($conn)
 function pull($conn)
 {
     $code = $_POST['code'];
-    $r=select($conn, 'exercise', "code='{$code}'")[0];
-    $result=[];
-    array_push($result,$r['data']);
-    array_push($result,$r['title']);
-    echo json_encode($result,JSON_UNESCAPED_UNICODE);
+    $r = select($conn, 'exercise', "code='{$code}'")[0];
+    $result = [];
+    array_push($result, $r['data']);
+    array_push($result, $r['title']);
+    echo json_encode($result, JSON_UNESCAPED_UNICODE);
     mysqli_close($conn);
 }
 
