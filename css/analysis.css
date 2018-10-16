@@ -7,4 +7,5 @@
 .exercise_content{
     padding: 10px;
     background-color: whitesmoke;
+    border: 1px solid darkgrey;
 }

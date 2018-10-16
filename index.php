@@ -19,12 +19,18 @@
             text-align: center;
             vertical-align: middle;
         }
+
+        .new, .analysis {
+            width: 200px;
+        }
     </style>
 </head>
 <body>
 <div class="container" style="padding-top: 15%">
     <div class="text-center">
-        <button class="btn btn-primary btn-large new">发布题组</button>
+        <div>
+            <button class="btn btn-primary btn-large new">发布题组</button>
+        </div>
     </div>
     <br><br>
     <div class="text-center"><a href="javascript:void(0)" class="history_btn">历史记录</a></div>
@@ -38,10 +44,11 @@
         <input type="password" class="input-large psw_input" style="height:30px;font-size: 30px">
     </div>
     <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-        <button class="btn btn-primary" disabled>确认</button>
+        <button class="btn psw_close" data-dismiss="modal" aria-hidden="true">关闭</button>
+        <button class="btn btn-primary psw_post">确认</button>
     </div>
 </div>
+
 <div id="history" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -59,8 +66,10 @@
                 &nbsp;
                 <a href="javascript:void(0)" class="page_next">下一页</a>
                 &nbsp;&nbsp;&nbsp;
-                <input type="text" style="width: 30px">
-                <button class="btn page_jump">跳转</button>
+                <div class="hide">
+                    <input type="text" style="width: 30px">
+                    <button class="btn page_jump">跳转</button>
+                </div>
             </div>
         </div>
     </div>

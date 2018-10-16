@@ -1,22 +1,23 @@
 $(function () {
     //拉取题目数据
     ajaxPost('json', '../Handler/handler.php?action=pull', {code: $('body').attr('code')}, function (msg) {
-        //console.log(msg);
-        $.each(msg, function (index, element) {
-            attach_data(index, $(this));
+        //console.log(JSON.parse(msg[0]));
+        $.each(JSON.parse(msg[0]), function (index, element) {
+            //console.log(element);
+            attach_data(index, element);
         })
 
     });
 
     function attach_data(index, msg) {//填充数据
-        var answer_num = msg[0]['answer'].length;//备选答案数量
-        var right_answer = msg[0]['right_answer'];//若为undefined则为无标准答案
-        var append = $('.default').after($('.default').clone()).removeClass('hide default').addClass('q' + msg[0].num);
+        var answer_num = msg['answer'].length;//备选答案数量
+        var right_answer = msg['right_answer'];//若为undefined则为无标准答案
+        var append = $('.default').after($('.default').clone()).removeClass('hide default').addClass('q' + msg.num);
         append.find('.result').css({width: answer_num * 100});//调整宽度
         var myChart = echarts.init(append.find('.result')[0]);
-        append.find('.exercise_content').append("<p>" + msg[0].num + "." + msg[0].stem + "</p>");
-        for (var val in msg[0].answer) {
-            append.find('.exercise_content').append("<p>" + msg[0].answer[val] + "</p>");
+        append.find('.exercise_content').append("<p style='font-weight: bold'>" + msg.num + "." + msg.stem + "</p>");
+        for (var val in msg.answer) {
+            append.find('.exercise_content').append("<p>答案" + (parseInt(val) + 1) + '：' + msg.answer[val] + "</p>");
         }
 
         //图表初始化
@@ -83,6 +84,7 @@ $(function () {
     function pull_analysis(myChart, number, obj) {
         ajaxPost('json', '../Handler/handler.php?action=analysis', {code: $('body').attr('code')}, function (msg) {
             //填充数据
+            if (msg['total'] == null) return;
             var num = parseInt(obj.find('.result').attr('num'));//已统计的答案数
             var flag = 0;//更新标记
             var data = myChart.getOption().series[0].data;//获取旧数据

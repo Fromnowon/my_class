@@ -7,13 +7,25 @@ $(function () {
     });
     $('#psw').on('hidden', function () {
         $('.psw_input').val('');
+        if ($('#psw').attr('flag') == 'analysis') {
+            //此时正在验证分析权限
+            $('#psw').removeAttr('flag');
+            $('#history').modal({backdrop: "static"});
+        }
     });
     $('.psw_post').click(function () {
-        psw_post();
+        psw_post($('#psw').attr('code'));
     });
     $('.psw_input').on('keydown', function (e) {
-        if (e.keyCode == 13) psw_post();
+        if (e.keyCode == 13) psw_post($('#psw').attr('code'));
     });
+    //分析
+    $('.history_body').on('click', '.analysis_btn', function () {
+        $('#psw').attr({'flag': 'analysis', 'code': $(this).attr('value')});
+        $('#history').modal('hide');
+        $('#psw').modal({backdrop: "static"});
+    })
+
     //分页
     $('.page_btn').on('click', '.page_prev', function () {
         if ($(this)[0].tagName != 'A') {//不为A标签时不响应点击事件
@@ -47,6 +59,7 @@ $(function () {
         $('#history').modal({backdrop: "static"});
     });
     $('#history').on('shown', function () {
+        $('.page_btn').attr('value', 1);//更新标记
         pull_history(1);
     })
 
@@ -83,7 +96,7 @@ $(function () {
                             html += ('<td>' + val + '</td>');
                             break;
                         case 'create_time':
-                            html += ('<td>' + val + '</td>' + '<td><a class="btn btn-primary" target="_blank" href="' + './main/exercise.php?code=q' + code + '">打开</a></td>' + '</tr>');
+                            html += ('<td>' + val + '</td>' + '<td><a class="btn btn-primary" target="_blank" href="' + './main/exercise.php?code=q' + code + '">打开</a>&nbsp;<a class="btn btn-success analysis_btn" value="q' + code + '" href="javascript:void(0)">统计</a></td>' + '</tr>');
                             break;
                     }
                 })
@@ -95,16 +108,19 @@ $(function () {
     }
 });
 
-function psw_post() {
-    $('.psw_post').addClass('disabled');
+function psw_post(value) {
     ajaxPost('text', './Handler/handler.php?action=validate', {psw: $('.psw_input').val()}, function (msg) {
         if (msg == 'ok') {
             //跳转
+            if ($('#psw').attr('flag') == 'analysis') {
+                window.open('./main/analysis.php?code=' + value);
+                $('#psw').removeAttr('flag value');
+            } else {
+                window.open('./main/new.php');
+            }
             $('#psw').modal('hide');
-            window.location.href = './main/new.php';
         } else {
             alert('错误');
-            $('.psw_post').removeClass('disabled');
         }
     })
 }

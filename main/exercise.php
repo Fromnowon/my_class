@@ -19,10 +19,12 @@ if (isset($_GET['code'])) {
 } else echo 'null';
 ?>" ip="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
 <div class="container">
-    <div style="margin-top: 20px">
+    <div style="margin-top: 50px">
         <span class="title" style="font-size: 28px;font-weight: bold"></span>
         &nbsp;&nbsp;&nbsp;
-        <a href="javascript:void(0)" onclick="window.opener=null;window.close()">关闭页面</a>
+        <div class="pull-right">
+            <a href="javascript:void(0)" onclick="window.opener=null;window.close()" style="color: red">关闭页面</a>
+        </div>
     </div>
     <br>
     <div class="exercise default hide e0">
