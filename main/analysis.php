@@ -24,6 +24,7 @@ if (isset($_GET['code'])) {
         <div class="exercise_content">
         </div>
         <div class="result" style="width: 200px;height: 300px;" num="0"></div>
+        <p class="no_data hide" style="color: red">暂无数据提交！</p>
         <hr>
     </div>
 </div>

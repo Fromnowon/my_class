@@ -6,7 +6,7 @@
  * Time: 16:17
  */
 include 'conn.php';
-$password = 'lbgz2012';//预设密码
+$password = 'test';//预设密码
 
 $action = $_GET['action'];
 switch ($action) {
@@ -53,7 +53,8 @@ function history($conn)
     //后台分页，每次只拉取n条记录
     $n = 5;
     $start = ($_POST['page'] - 1) * $n;
-    $result = all($conn, 'exercise', "limit {$start},{$n}");
+    $result = all($conn, 'exercise', "ORDER BY id DESC limit {$start},{$n}");
+    if ($result[count($result) - 1]['id'] == 1) $result['flag'] = 'overflow';//溢出
     echo json_encode($result, JSON_UNESCAPED_UNICODE);
     mysqli_close($conn);
 }

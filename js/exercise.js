@@ -27,6 +27,7 @@ $(function () {
         })
         $('.exercise_post').removeClass('hide');
         $('.default').remove();
+        $('.loading').fadeOut();
     })
 
     //提交按钮

@@ -18,6 +18,14 @@ if (isset($_GET['code'])) {
     echo $_GET['code'];
 } else echo 'null';
 ?>" ip="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
+<div class="loading">
+    <img src="../img/loading.gif" style="position: absolute;
+               left:0;
+               right: 0;
+               top:0;
+               bottom: 0;
+               margin:auto;" alt="">
+</div>
 <div class="container">
     <div style="margin-top: 50px">
         <span class="title" style="font-size: 28px;font-weight: bold"></span>

@@ -84,7 +84,10 @@ $(function () {
     function pull_analysis(myChart, number, obj) {
         ajaxPost('json', '../Handler/handler.php?action=analysis', {code: $('body').attr('code')}, function (msg) {
             //填充数据
-            if (msg['total'] == null) return;
+            if (msg['total'] == null) {
+                if ($('.no_data').hasClass('hide')) $('.no_data').removeClass('hide');
+                return;
+            }
             var num = parseInt(obj.find('.result').attr('num'));//已统计的答案数
             var flag = 0;//更新标记
             var data = myChart.getOption().series[0].data;//获取旧数据
@@ -100,6 +103,7 @@ $(function () {
                     }]
                 });
                 myChart.hideLoading();
+                if (!$('.no_data').hasClass('hide')) $('.no_data').addClass('hide');
             }
             obj.find('.result').attr('num', num);
         })

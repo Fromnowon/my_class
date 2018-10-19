@@ -26,14 +26,16 @@
     </style>
 </head>
 <body>
-<div class="container" style="padding-top: 15%">
-    <div class="text-center">
-        <div>
-            <button class="btn btn-primary btn-large new">发布题组</button>
-        </div>
+<div style="position: absolute;left: 50px;top:50px">
+    <p style="color: red;font-weight: bold;font-size: 20px">验证码为：test</p>
+</div>
+<div class="container-fluid" style="padding-top: 15%">
+    <div style="text-align: center">
+        <button class="btn btn-primary btn-large new">发布题组</button>
+        <br><br>
+        <a href="javascript:void(0)" class="history_btn">历史记录</a>
     </div>
-    <br><br>
-    <div class="text-center"><a href="javascript:void(0)" class="history_btn">历史记录</a></div>
+</div>
 </div>
 <div id="psw" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
@@ -54,17 +56,20 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">历史记录：</h3>
     </div>
-    <div class="modal-body history_body">
+    <div class="modal-body history_body" style="position: relative">
         <table>
             <tr>
                 <td>加载中...</td>
             </tr>
         </table>
-        <div style="text-align: center;font-size: 18px" class="page_btn hide" value="1">
+        <div style="text-align: center;font-size: 18px" class="page_btn hide" value="init">
+            <div class="loading pull-left hide">
+                <span style="color: red">加载中...</span>
+            </div>
             <div class="form-horizontal pull-right">
                 <span class="page_prev">上一页</span>
                 &nbsp;
-                <a href="javascript:void(0)" class="page_next">下一页</a>
+                <a href="javascript:void(0)" class="page_next" onclick="page_next(this)">下一页</a>
                 &nbsp;&nbsp;&nbsp;
                 <div class="hide">
                     <input type="text" style="width: 30px">
