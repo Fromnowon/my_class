@@ -1,15 +1,16 @@
 $(function () {
+    var files = {};
     var container = $('.container');
 
     //增加备选答案
     container.on('click', '.add_answer', function () {
         //限制答案数量
-        if ($(this).prev().attr('num') == '10') {
+        if ($(this).parent().prev().attr('num') == '10') {
             alert('备选答案应不多于10个');
         }
         else {
-            $(this).prev().after($(this).parents('.exercise_choose').find('.choose_default').clone().removeClass('choose_default hide'));
-            $(this).prev().attr('num', parseInt($(this).prev().prev().attr('num')) + 1);
+            $(this).parent().prev().after($(this).parents('.exercise_choose').find('.choose_default').clone().removeClass('choose_default hide'));
+            $(this).parent().prev().attr('num', parseInt($(this).parent().prev().prev().attr('num')) + 1);
         }
     })
     //删除备选答案
@@ -97,30 +98,46 @@ $(function () {
     })
     $('#file_upload_input').on('change', function () {
         //console.log($(this)[0].files);
+        //限制文件数不大于5个
+        if ($('.file_list').children().length >= 5) {
+            alert('文件数应不大于5个');
+            return;
+        }
+
         $.each($(this)[0].files, function (index, element) {
+            //存储文件对象
+            if (files[element.name] == undefined) {
+                //文件不存在
+                files[element.name] = element;
+            } else {
+                alert('已存在同名文件！');
+                return;
+            }
             var img = new FileReader();
             img.readAsDataURL(element);
             img.onload = function (e) {
                 var imgFile = e.target.result;
-                console.log(element);
+                //console.log(element);
                 var file_list = $('.file_list');
                 if (element.type.substr(0, element.type.indexOf('/')) == 'image') {
                     //若为图片则开启预览
-                    file_list.prepend("<div class='file_div'><img src='" + imgFile + "' class='attachment_img'/><br><span style='font-size: 12px'>" + element.name + "</span><br><i class='fa fa-trash attachment_remove' style='margin-bottom: 5px'></i></div>");
+                    file_list.prepend("<div class='file_div'><img src='" + imgFile + "' class='attachment_img'/><br><span style='font-size: 12px' class='file_name'>" + element.name + "</span><br><i class='fa fa-trash attachment_remove' style='margin-bottom: 5px'></i></div>");
                 } else {
                     //若不为图片则使用默认图标
-                    file_list.prepend("<div class='file_div'><img src='../img/file_default.png' class='attachment_img'/><br><span style='font-size: 12px'>" + element.name + "</span><br><i class='fa fa-trash attachment_remove' style='margin-bottom: 5px'></i></div>");
+                    file_list.prepend("<div class='file_div'><img src='../img/file_default.png' class='attachment_img'/><br><span style='font-size: 12px' class='file_name'>" + element.name + "</span><br><i class='fa fa-trash attachment_remove' style='margin-bottom: 5px'></i></div>");
                 }
                 //绑定事件
                 $('.attachment_remove').off().click(function () {
                     if (confirm('将删除此附件')) {
                         $(this).parent().remove();
+                        delete files[$(this).parent().find('.file_name').html()];
                         file_list_show();
                     }
                 })
                 file_list_show();
             };
         });
+        //console.log(files);
         $(this).val('');//解决选择相同文件时不触发事件的bug
     })
 });
