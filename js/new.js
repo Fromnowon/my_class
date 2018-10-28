@@ -90,7 +90,46 @@ $(function () {
             }
         })
     })
-})
+
+    //上传文件
+    $('.file_upload_btn').click(function () {
+        $('#file_upload_input').trigger('click');
+    })
+    $('#file_upload_input').on('change', function () {
+        //console.log($(this)[0].files);
+        $.each($(this)[0].files, function (index, element) {
+            var img = new FileReader();
+            img.readAsDataURL(element);
+            img.onload = function (e) {
+                var imgFile = e.target.result;
+                console.log(element);
+                var file_list = $('.file_list');
+                if (element.type.substr(0, element.type.indexOf('/')) == 'image') {
+                    //若为图片则开启预览
+                    file_list.prepend("<div class='file_div'><img src='" + imgFile + "' class='attachment_img'/><br><span style='font-size: 12px'>" + element.name + "</span><br><i class='fa fa-trash attachment_remove' style='margin-bottom: 5px'></i></div>");
+                } else {
+                    //若不为图片则使用默认图标
+                    file_list.prepend("<div class='file_div'><img src='../img/file_default.png' class='attachment_img'/><br><span style='font-size: 12px'>" + element.name + "</span><br><i class='fa fa-trash attachment_remove' style='margin-bottom: 5px'></i></div>");
+                }
+                //绑定事件
+                $('.attachment_remove').off().click(function () {
+                    if (confirm('将删除此附件')) {
+                        $(this).parent().remove();
+                        file_list_show();
+                    }
+                })
+                file_list_show();
+            };
+        });
+        $(this).val('');//解决选择相同文件时不触发事件的bug
+    })
+});
+
+function file_list_show() {
+    if ($('.file_list').children().length > 0)
+        $('.file_list').removeClass('hide');
+    else $('.file_list').addClass('hide');
+}
 
 function ajaxPost(type, url, data, fun) {
     $.ajax({

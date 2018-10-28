@@ -18,6 +18,7 @@ if ($_SESSION['validate'] != 1) {
     <link rel="stylesheet" href="../css/new.css">
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.js"></script>
+
     <script src="../js/new.js"></script>
 </head>
 <body>
@@ -77,8 +78,9 @@ if ($_SESSION['validate'] != 1) {
         <div class="exercise_div" style="margin-bottom:20px;padding: 10px">
             <table>
                 <tr>
-                    <td colspan="2" height="30px"><a href="javascript:void(0)" class="pull-right del_exercise"><i
-                                    style="transform: scale(1.1);" class="icon-remove"></i></a></td>
+                    <td colspan="2" height="30px">
+                        <a href="javascript:void(0)" class="pull-right del_exercise">
+                            <i style="transform: scale(1.1)" class="icon-remove"></i></a></td>
                 </tr>
                 <tr>
                     <td style="width: 30px;text-align: center" valign="top" rowspan="2"><span
@@ -112,8 +114,18 @@ if ($_SESSION['validate'] != 1) {
                                         style="color:#cbcbcb;position: absolute;left: 450px;top:6px"
                                         class="fa fa-check"></i></a>
                         </div>
-                        <a href="javascript:void(0)" class="add_answer"><i
-                                    style="transform: scale(1.2);margin-left: 20px;" class="icon-plus"></i></a>
+                        <div>
+                            <a href="javascript:void(0)" class="add_answer"><i
+                                        style="transform: scale(1.2);margin-left: 20px;" class="icon-plus"></i></a>
+                        </div>
+                        <div class="attachment">
+                            <!--可添加图片、文档等附件-->
+                            <div class="file_list hide">
+                                <!--文件列表区，暂不提供内容预览-->
+                            </div>
+                            <input class="span2" id="file_upload_input" type="file" name="file[]" multiple style="display: none">
+                            <button class="btn btn-info file_upload_btn">选择文件</button>
+                        </div>
                     </td>
                 </tr>
             </table>
