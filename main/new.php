@@ -68,8 +68,19 @@ if ($_SESSION['validate'] != 1) {
                                         style="color:#cbcbcb;position: absolute;left: 450px;top:6px"
                                         class="fa fa-check"></i></a>
                         </div>
-                        <a href="javascript:void(0)" class="add_answer"><i
-                                    style="transform: scale(1.2);margin-left: 20px;" class="icon-plus"></i></a>
+                        <div>
+                            <a href="javascript:void(0)" class="add_answer"><i
+                                        style="transform: scale(1.2);margin-left: 20px;" class="icon-plus"></i></a>
+                        </div>
+                        <div class="attachment">
+                            <!--可添加图片、文档等附件-->
+                            <div class="file_list hide">
+                                <!--文件列表区，暂不提供内容预览-->
+                            </div>
+                            <input class="span2" id="file_upload_input" type="file" name="file[]" multiple
+                                   style="display: none">
+                            <button class="btn btn-info file_upload_btn">选择文件</button>
+                        </div>
                     </td>
                 </tr>
             </table>
@@ -123,8 +134,10 @@ if ($_SESSION['validate'] != 1) {
                             <div class="file_list hide">
                                 <!--文件列表区，暂不提供内容预览-->
                             </div>
-                            <input class="span2" id="file_upload_input" type="file" name="file[]" multiple style="display: none">
+                            <input class="span2" id="file_upload_input" type="file" name="file[]" multiple
+                                   style="display: none">
                             <button class="btn btn-info file_upload_btn">选择文件</button>
+                            <button class="test">上传</button>
                         </div>
                     </td>
                 </tr>

@@ -45,9 +45,22 @@ switch ($action) {
             history($conn);
             break;
         }
+    case 'upload':
+        {
+            upload($conn);
+            break;
+        }
     default:
         break;
 }
+function upload($conn)
+{
+
+    $file = $_FILES;
+    print_r($file);
+}
+
+
 function history($conn)
 {
     //后台分页，每次只拉取n条记录
