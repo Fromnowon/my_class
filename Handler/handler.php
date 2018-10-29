@@ -57,7 +57,8 @@ function upload($conn)
 {
 
     $file = $_FILES;
-    print_r($file);
+    sleep(3);
+    var_dump($file);
 }
 
 

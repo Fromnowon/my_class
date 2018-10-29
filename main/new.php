@@ -22,6 +22,11 @@ if ($_SESSION['validate'] != 1) {
     <script src="../js/new.js"></script>
 </head>
 <body>
+<div class="progress" style="display: none">
+    <div style="display: table-cell;width: 100%;height: 100%;vertical-align: middle;text-align: center">
+        <p style="font-size: 20px">数据上传中...<span class="progress_text">n/N</span></p>
+    </div>
+</div>
 <div class="container">
     <div style="margin-top: 20px">
         <span style="font-size: 26px">题组名称：</span>
@@ -137,7 +142,6 @@ if ($_SESSION['validate'] != 1) {
                             <input class="span2" id="file_upload_input" type="file" name="file[]" multiple
                                    style="display: none">
                             <button class="btn btn-info file_upload_btn">选择文件</button>
-                            <button class="test">上传</button>
                         </div>
                     </td>
                 </tr>

@@ -1,6 +1,7 @@
 $(function () {
     var files = new Array();
     var container = $('.container');
+    var progress = new Array();
 
     //增加备选答案
     container.on('click', '.add_answer', function () {
@@ -60,6 +61,7 @@ $(function () {
 
     //发布题组
     $('.publish').click(function () {
+        $('.progress').css({display: ''});
         var data = new Array();
         $('.exercise_div').each(function () {
             if (!$(this).hasClass('exercise_default')) {
@@ -83,14 +85,62 @@ $(function () {
             total: $('.exercise_total').text(),
             title: $('.title').val()
         }, function (msg) {
-            console.log(msg);
+            //console.log(msg);
             if (msg == 'ok') {
                 //alert('生成题组成功！');
                 //完成上传文字信息
                 //开始上传附件
-                for (var file in files) {
-
+                //生成标记数组
+                var total = parseInt($('.exercise_total').text());
+                for (var i = 0; i < total; i++)
+                    progress.push(0);//为0时表示未完成
+                progress.push(-1);//结束符
+                var check = setInterval(function () {
+                    //console.log(progress);
+                    //轮询标记数组
+                    for (var i in progress) {
+                        if (progress[i] == 0) {
+                            $('.progress_text').text(i + '/' + total);
+                            return;//结束本次轮询
+                        }
+                        if (progress[i] == -1) {
+                            $('.progress_text').text('完成！');
+                            clearInterval(check);//都不为0.则结束轮询
+                        }
+                    }
+                }, 500);
+                var formdata_arr = new Array();
+                for (var index_p in files) {
+                    var formdata = new FormData();
+                    for (var index in files[index_p]) {
+                        formdata.append(index, files[index_p][index])
+                    }
+                    formdata_arr.push(formdata);
                 }
+
+                upload_ajax(formdata_arr, 0);
+
+                function upload_ajax(formdata, count) {
+                    if (count > (total - 1)) return;
+                    $.ajax(
+                        {
+                            url: '../Handler/handler.php?action=upload',
+                            type: "POST",
+                            processData: false,
+                            contentType: false,
+                            data: formdata[count],
+                            success: function (msg) {
+                                console.log(msg);
+                                if (msg != 'ok') {
+                                    progress[count] = 1;
+                                    count++;
+                                    upload_ajax(formdata, count);
+                                } else alert(msg);
+                            }
+                        }
+                    );
+                }
+
             } else {
                 alert(msg);
             }
@@ -147,7 +197,7 @@ $(function () {
                 file_list_show(file_list);
             };
         });
-        console.log(files);
+        //console.log(files);
         $(this).val('');//解决选择相同文件时不触发事件的bug
     })
 });
