@@ -1,5 +1,5 @@
 $(function () {
-    var files = new Array();
+    var files = new Array({});
     var container = $('.container');
     var progress = new Array();
 
@@ -41,6 +41,7 @@ $(function () {
         $(this).parent().before($('.exercise_default').clone()).prev().removeClass('exercise_default').css('display', 'block');
         $(this).parent().prev().find('.exercise_num').text(parseInt($(this).parent().prevAll('div').eq(1).find('.exercise_num').text()) + 1);
         $('.exercise_total').text(parseInt($('.exercise_total').text()) + 1);
+        files.push({});
     })
 
     //删除题目
@@ -48,8 +49,11 @@ $(function () {
         if ($('.exercise_total').text() == '1') {
             alert('题组应至少包含1题');
         } else {
+            //删除files数组数据
+            files.splice(parseInt($(this).parents('.exercise_div').find('.exercise_num').text()) - 1, 1);
+            console.log(files);
             //重新处理题目序号
-            var next = $(this).parents('div').eq(0).next();//获取下一题div
+            var next = $(this).parents('.exercise_div').eq(0).next();//获取下一题div
             while (next.hasClass('exercise_div')) {
                 next.find('.exercise_num').text(parseInt(next.find('.exercise_num').text()) - 1);
                 next = next.next();
@@ -86,7 +90,7 @@ $(function () {
             title: $('.title').val()
         }, function (msg) {
             //console.log(msg);
-            if (msg == 'ok') {
+            if (msg != 'error') {
                 //alert('生成题组成功！');
                 //完成上传文字信息
                 //开始上传附件
@@ -117,25 +121,28 @@ $(function () {
                     }
                     formdata_arr.push(formdata);
                 }
-
+                //console.log(files);
                 upload_ajax(formdata_arr, 0);
 
                 function upload_ajax(formdata, count) {
                     if (count > (total - 1)) return;
                     $.ajax(
                         {
-                            url: '../Handler/handler.php?action=upload',
+                            url: '../Handler/handler.php?action=attachment_upload_' + msg,
                             type: "POST",
                             processData: false,
                             contentType: false,
                             data: formdata[count],
                             success: function (msg) {
-                                console.log(msg);
-                                if (msg != 'ok') {
+                                //console.log(msg);
+                                if (msg == 'ok') {
                                     progress[count] = 1;
                                     count++;
                                     upload_ajax(formdata, count);
-                                } else alert(msg);
+                                } else {
+                                    alert(msg);
+                                    console.log(msg);
+                                }
                             }
                         }
                     );
@@ -143,6 +150,7 @@ $(function () {
 
             } else {
                 alert(msg);
+                console.log(msg);
             }
         })
     })
@@ -156,9 +164,9 @@ $(function () {
     container.on('change', '#file_upload_input', function () {
         //题号
         var num = parseInt($(this).parents('.exercise_div').find('.exercise_num').html()) - 1;
-        if (files.length <= num) {
-            files.push({});
-        }
+        // if (files.length <= num) {
+        //     files.push({});
+        //}
         //限制文件数不大于5个
         if ($(this).parent().find('.file_list').children().length >= 5) {
             alert('文件数应不大于5个');
@@ -200,7 +208,8 @@ $(function () {
         //console.log(files);
         $(this).val('');//解决选择相同文件时不触发事件的bug
     })
-});
+})
+;
 
 function file_list_show(file_list) {
     if (file_list.children().length > 0)

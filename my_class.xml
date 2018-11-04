@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 - phpMyAdmin XML Dump
-- version 4.6.5.2
+- version 4.7.4
 - https://www.phpmyadmin.net
 -
 - Host: 127.0.0.1
-- Generation Time: 2018-10-09 11:37:35
-- 服务器版本： 10.1.21-MariaDB
-- PHP Version: 5.6.30
+- Generation Time: 2018-11-04 17:04:01
+- 服务器版本： 10.1.28-MariaDB
+- PHP Version: 7.1.10
 -->
 
 <pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
@@ -23,7 +23,7 @@
                   `total` int(11) NOT NULL DEFAULT '0',
                   `data` text NOT NULL,
                   PRIMARY KEY (`id`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+                ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
             </pma:table>
             <pma:table name="exercise">
                 CREATE TABLE `exercise` (
@@ -32,9 +32,10 @@
                   `total` int(11) NOT NULL COMMENT '题目数',
                   `title` varchar(64) NOT NULL DEFAULT '无标题',
                   `data` text NOT NULL,
-                  `creat_time` varchar(32) NOT NULL,
+                  `attachment` text NOT NULL,
+                  `create_time` varchar(32) NOT NULL,
                   PRIMARY KEY (`id`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+                ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
             </pma:table>
             <pma:table name="total">
                 CREATE TABLE `total` (
@@ -63,6 +64,18 @@
             <column name="total">2</column>
             <column name="data">[[{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;我自己&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;他&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;他&quot;,&quot;choose&quot;:1}],[{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;我自己&quot;,&quot;choose&quot;:0},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;他&quot;,&quot;choose&quot;:0},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;他&quot;,&quot;choose&quot;:0}]]</column>
         </table>
+        <table name="answer">
+            <column name="id">3</column>
+            <column name="code">q2</column>
+            <column name="total">1</column>
+            <column name="data">[[{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;...&quot;,&quot;choose&quot;:1}],[{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;...&quot;,&quot;choose&quot;:0}]]</column>
+        </table>
+        <table name="answer">
+            <column name="id">4</column>
+            <column name="code">q7</column>
+            <column name="total">5</column>
+            <column name="data">[[{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;zzh&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;zzh&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;zzh&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;121.31.246.26&quot;,&quot;name&quot;:&quot;333&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;121.31.246.26&quot;,&quot;name&quot;:&quot;333&quot;,&quot;choose&quot;:1}],[{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;zzh&quot;,&quot;choose&quot;:2},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;zzh&quot;,&quot;choose&quot;:0},{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;name&quot;:&quot;zzh&quot;,&quot;choose&quot;:0},{&quot;ip&quot;:&quot;121.31.246.26&quot;,&quot;name&quot;:&quot;333&quot;,&quot;choose&quot;:1},{&quot;ip&quot;:&quot;121.31.246.26&quot;,&quot;name&quot;:&quot;333&quot;,&quot;choose&quot;:1}]]</column>
+        </table>
         <!-- 表 exercise -->
         <table name="exercise">
             <column name="id">1</column>
@@ -70,7 +83,8 @@
             <column name="total">2</column>
             <column name="title">无标题</column>
             <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;这是测试1&quot;,&quot;answer&quot;:[&quot;答案1&quot;,&quot;答案2&quot;]},{&quot;num&quot;:&quot;2&quot;,&quot;stem&quot;:&quot;这是测试2&quot;,&quot;right_answer&quot;:&quot;1&quot;,&quot;answer&quot;:[&quot;答案1&quot;,&quot;答案2&quot;,&quot;答案3&quot;]}]</column>
-            <column name="creat_time">2018-06-22 10:15:14</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-06-22 10:15:14</column>
         </table>
         <table name="exercise">
             <column name="id">2</column>
@@ -78,7 +92,8 @@
             <column name="total">2</column>
             <column name="title">无标题</column>
             <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;111111111111111111111111111111111111&quot;,&quot;answer&quot;:[&quot;122222222222222222222222&quot;,&quot;23333333333333333333333333333333&quot;]},{&quot;num&quot;:&quot;2&quot;,&quot;stem&quot;:&quot;4444444444444444444444444444&quot;,&quot;answer&quot;:[&quot;5555555555555555555&quot;,&quot;566666666666666666666&quot;]}]</column>
-            <column name="creat_time">2018-09-22 10:15:14</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-09-22 10:15:14</column>
         </table>
         <table name="exercise">
             <column name="id">3</column>
@@ -86,12 +101,337 @@
             <column name="total">2</column>
             <column name="title">无标题</column>
             <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;,&quot;answer&quot;:[&quot;aaaa&quot;,&quot;aaaaa&quot;]},{&quot;num&quot;:&quot;2&quot;,&quot;stem&quot;:&quot;2ssssssssssssssssssssssssssssssssssssssssssssssssssssssss&quot;,&quot;answer&quot;:[&quot;sssssss&quot;,&quot;ssssss&quot;]}]</column>
-            <column name="creat_time">2018-10-09 17:09:33</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-09 17:09:33</column>
+        </table>
+        <table name="exercise">
+            <column name="id">4</column>
+            <column name="code">q3</column>
+            <column name="total">1</column>
+            <column name="title">这是标题哦</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;111111111111111111111111111&quot;,&quot;right_answer&quot;:&quot;1&quot;,&quot;answer&quot;:[&quot;2222222222222222222222&quot;,&quot;33333333333333333333&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-11 09:49:46</column>
+        </table>
+        <table name="exercise">
+            <column name="id">5</column>
+            <column name="code">q4</column>
+            <column name="total">1</column>
+            <column name="title">这里还是测试</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;额&quot;,&quot;answer&quot;:[&quot;2222&quot;,&quot;222222&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-11 15:40:50</column>
+        </table>
+        <table name="exercise">
+            <column name="id">6</column>
+            <column name="code">q5</column>
+            <column name="total">1</column>
+            <column name="title">第六条数据</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;题目&quot;,&quot;answer&quot;:[&quot;答案1&quot;,&quot;答案2&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-11 15:41:21</column>
+        </table>
+        <table name="exercise">
+            <column name="id">7</column>
+            <column name="code">q6</column>
+            <column name="total">1</column>
+            <column name="title">测试</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;题目&quot;,&quot;answer&quot;:[&quot;答案1&quot;,&quot;答案2&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-11 17:38:11</column>
+        </table>
+        <table name="exercise">
+            <column name="id">8</column>
+            <column name="code">q7</column>
+            <column name="total">2</column>
+            <column name="title">2018初中语文文学常识</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;下列对文学常识的表述，不正确的一项是&quot;,&quot;answer&quot;:[&quot;《鲁提辖拳打镇关西》节选自《水浒传》，作者施耐庵。&quot;,&quot;《关睢》和《蒹葭》两首诗都选自《诗经》。&quot;,&quot;《江城子·密州出猎》中的“江城子”为词牌名。&quot;,&quot;《破阵子·为陈同甫赋壮词以寄之》选自《稼轩长短句》，作者苏轼。&quot;]},{&quot;num&quot;:&quot;2&quot;,&quot;stem&quot;:&quot;你对下列作家的情况熟悉吗？哪一项说法正确？&quot;,&quot;answer&quot;:[&quot;《孟子》一书，相传是孟子的弟子所作。孟子是儒家思想的代表人物，地位仅次于孔子，后世常以“孔孟”并称。&quot;,&quot;韩愈是唐宋八大家之一。他的诗和散文成就都很高，在《马说》一文中他慨叹道：“千里马常有，而伯乐不常有”。&quot;,&quot;《天上的街市》，作者郭沫若，诗人、学者。他的诗充满奇妙的想像和丰富的联想，代表诗集有《女神》《繁星》。&quot;,&quot;莎士比亚是欧洲文艺复兴时期法国杰出的戏剧家和诗人，他的四大悲剧是《李尔王》《哈姆莱特》《威尼斯商人》《罗密欧与朱丽叶》。&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-16 15:13:20</column>
+        </table>
+        <table name="exercise">
+            <column name="id">9</column>
+            <column name="code">q8</column>
+            <column name="total">2</column>
+            <column name="title">2018初中语文文学常识</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;下列对文学常识的表述，不正确的一项是&quot;,&quot;answer&quot;:[&quot;《鲁提辖拳打镇关西》节选自《水浒传》，作者施耐庵。&quot;,&quot;《关睢》和《蒹葭》两首诗都选自《诗经》。&quot;,&quot;《江城子·密州出猎》中的“江城子”为词牌名。&quot;,&quot;《破阵子·为陈同甫赋壮词以寄之》选自《稼轩长短句》，作者苏轼。&quot;]},{&quot;num&quot;:&quot;2&quot;,&quot;stem&quot;:&quot;你对下列作家的情况熟悉吗？哪一项说法正确？&quot;,&quot;answer&quot;:[&quot;《孟子》一书，相传是孟子的弟子所作。孟子是儒家思想的代表人物，地位仅次于孔子，后世常以“孔孟”并称。&quot;,&quot;韩愈是唐宋八大家之一。他的诗和散文成就都很高，在《马说》一文中他慨叹道：“千里马常有，而伯乐不常有”。&quot;,&quot;《天上的街市》，作者郭沫若，诗人、学者。他的诗充满奇妙的想像和丰富的联想，代表诗集有《女神》《繁星》。&quot;,&quot;莎士比亚是欧洲文艺复兴时期法国杰出的戏剧家和诗人，他的四大悲剧是《李尔王》《哈姆莱特》《威尼斯商人》《罗密欧与朱丽叶》。&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-16 15:13:28</column>
+        </table>
+        <table name="exercise">
+            <column name="id">10</column>
+            <column name="code">q9</column>
+            <column name="total">2</column>
+            <column name="title">2018初中语文文学常识</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;下列对文学常识的表述，不正确的一项是&quot;,&quot;answer&quot;:[&quot;《鲁提辖拳打镇关西》节选自《水浒传》，作者施耐庵。&quot;,&quot;《关睢》和《蒹葭》两首诗都选自《诗经》。&quot;,&quot;《江城子·密州出猎》中的“江城子”为词牌名。&quot;,&quot;《破阵子·为陈同甫赋壮词以寄之》选自《稼轩长短句》，作者苏轼。&quot;]},{&quot;num&quot;:&quot;2&quot;,&quot;stem&quot;:&quot;你对下列作家的情况熟悉吗？哪一项说法正确？&quot;,&quot;answer&quot;:[&quot;《孟子》一书，相传是孟子的弟子所作。孟子是儒家思想的代表人物，地位仅次于孔子，后世常以“孔孟”并称。&quot;,&quot;韩愈是唐宋八大家之一。他的诗和散文成就都很高，在《马说》一文中他慨叹道：“千里马常有，而伯乐不常有”。&quot;,&quot;《天上的街市》，作者郭沫若，诗人、学者。他的诗充满奇妙的想像和丰富的联想，代表诗集有《女神》《繁星》。&quot;,&quot;莎士比亚是欧洲文艺复兴时期法国杰出的戏剧家和诗人，他的四大悲剧是《李尔王》《哈姆莱特》《威尼斯商人》《罗密欧与朱丽叶》。&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-16 15:13:42</column>
+        </table>
+        <table name="exercise">
+            <column name="id">11</column>
+            <column name="code">q10</column>
+            <column name="total">1</column>
+            <column name="title">test</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;test&quot;,&quot;answer&quot;:[&quot;1&quot;,&quot;2&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-17 09:44:37</column>
+        </table>
+        <table name="exercise">
+            <column name="id">12</column>
+            <column name="code">q11</column>
+            <column name="total">1</column>
+            <column name="title">22</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;222&quot;,&quot;answer&quot;:[&quot;222&quot;,&quot;2222&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-29 23:08:20</column>
+        </table>
+        <table name="exercise">
+            <column name="id">13</column>
+            <column name="code">q12</column>
+            <column name="total">1</column>
+            <column name="title">1</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;111&quot;,&quot;answer&quot;:[&quot;111&quot;,&quot;11111&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-29 23:10:31</column>
+        </table>
+        <table name="exercise">
+            <column name="id">14</column>
+            <column name="code">q13</column>
+            <column name="total">1</column>
+            <column name="title">2222</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;2222&quot;,&quot;answer&quot;:[&quot;2222&quot;,&quot;222&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-29 23:12:31</column>
+        </table>
+        <table name="exercise">
+            <column name="id">15</column>
+            <column name="code">q14</column>
+            <column name="total">2</column>
+            <column name="title">111</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;1212ddsadasd&quot;,&quot;answer&quot;:[&quot;asdasd&quot;,&quot;asdasd&quot;]},{&quot;num&quot;:&quot;2&quot;,&quot;stem&quot;:&quot;fdsfsadfasd&quot;,&quot;answer&quot;:[&quot;fsadfsdaf&quot;,&quot;sdfsdfsdfas&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-29 23:13:35</column>
+        </table>
+        <table name="exercise">
+            <column name="id">16</column>
+            <column name="code">q15</column>
+            <column name="total">2</column>
+            <column name="title">3fdsdafsdf</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;dsfsdafsd&quot;,&quot;answer&quot;:[&quot;fafs&quot;,&quot;fasdfasdfsdf&quot;]},{&quot;num&quot;:&quot;2&quot;,&quot;stem&quot;:&quot;asdfasfsf&quot;,&quot;answer&quot;:[&quot;asdfasff&quot;,&quot;sdfasdfasfsdf&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-10-29 23:15:27</column>
+        </table>
+        <table name="exercise">
+            <column name="id">17</column>
+            <column name="code">q16</column>
+            <column name="total">2</column>
+            <column name="title">21321312</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;3213213123&quot;,&quot;answer&quot;:[&quot;123123&quot;,&quot;12312312321&quot;]},{&quot;num&quot;:&quot;2&quot;,&quot;stem&quot;:&quot;21312321&quot;,&quot;answer&quot;:[&quot;3123&quot;,&quot;123123123123&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 18:39:11</column>
+        </table>
+        <table name="exercise">
+            <column name="id">18</column>
+            <column name="code">q17</column>
+            <column name="total">1</column>
+            <column name="title">321312</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;321313&quot;,&quot;answer&quot;:[&quot;21321321&quot;,&quot;321321321&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 19:20:09</column>
+        </table>
+        <table name="exercise">
+            <column name="id">19</column>
+            <column name="code">q18</column>
+            <column name="total">1</column>
+            <column name="title">casdfasdf </column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;dsfdsfdsfsdf&quot;,&quot;answer&quot;:[&quot;dsfsdfds&quot;,&quot;fdsfdsfdsfs&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 19:28:44</column>
+        </table>
+        <table name="exercise">
+            <column name="id">20</column>
+            <column name="code">q19</column>
+            <column name="total">1</column>
+            <column name="title">gdfgdfg</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;gdfgdfgfd&quot;,&quot;answer&quot;:[&quot;gdfgdfgdf&quot;,&quot;gdfgdfgfdgfd&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 19:31:46</column>
+        </table>
+        <table name="exercise">
+            <column name="id">21</column>
+            <column name="code">q20</column>
+            <column name="total">1</column>
+            <column name="title">gdfgdf</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;gdfgdfg&quot;,&quot;answer&quot;:[&quot;dfgdfgdf&quot;,&quot;gdfgdfg&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 19:32:39</column>
+        </table>
+        <table name="exercise">
+            <column name="id">22</column>
+            <column name="code">q21</column>
+            <column name="total">1</column>
+            <column name="title">fsdfvx  dsfsdfsdf</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;fsdfdsf&quot;,&quot;answer&quot;:[&quot;sdfdsfsd&quot;,&quot;fsdfsdf&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 19:34:38</column>
+        </table>
+        <table name="exercise">
+            <column name="id">23</column>
+            <column name="code">q22</column>
+            <column name="total">2</column>
+            <column name="title">fsdfvx  dsfsdfsdf</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;fsdfdsf&quot;,&quot;answer&quot;:[&quot;sdfdsfsd&quot;,&quot;fsdfsdf&quot;]},{&quot;num&quot;:&quot;2&quot;,&quot;stem&quot;:&quot;ggdg&quot;,&quot;answer&quot;:[&quot;dfgdfgdf&quot;,&quot;gdfgdf&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 19:35:21</column>
+        </table>
+        <table name="exercise">
+            <column name="id">24</column>
+            <column name="code">q46</column>
+            <column name="total">1</column>
+            <column name="title">dfgdf</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;gdfgdf&quot;,&quot;answer&quot;:[&quot;gdfg&quot;,&quot;dfgdfg&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 23:15:12</column>
+        </table>
+        <table name="exercise">
+            <column name="id">25</column>
+            <column name="code">q47</column>
+            <column name="total">1</column>
+            <column name="title">werwe</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;rewrwe&quot;,&quot;answer&quot;:[&quot;rewrwe&quot;,&quot;rwerwerewr&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 23:16:24</column>
+        </table>
+        <table name="exercise">
+            <column name="id">26</column>
+            <column name="code">q48</column>
+            <column name="total">1</column>
+            <column name="title">fdg</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;dfgdfg&quot;,&quot;answer&quot;:[&quot;dfgdfg&quot;,&quot;dfgdfgdf&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 23:17:12</column>
+        </table>
+        <table name="exercise">
+            <column name="id">27</column>
+            <column name="code">q49</column>
+            <column name="total">1</column>
+            <column name="title">dfg</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;dfgdf&quot;,&quot;answer&quot;:[&quot;dfgdf&quot;,&quot;gdfgdf&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 23:19:45</column>
+        </table>
+        <table name="exercise">
+            <column name="id">28</column>
+            <column name="code">q50</column>
+            <column name="total">1</column>
+            <column name="title">hgfh</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;fghfg&quot;,&quot;answer&quot;:[&quot;fghgfh&quot;,&quot;fghfghfg&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 23:22:26</column>
+        </table>
+        <table name="exercise">
+            <column name="id">29</column>
+            <column name="code">q51</column>
+            <column name="total">1</column>
+            <column name="title">gfhgf</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;hgfh&quot;,&quot;answer&quot;:[&quot;gfhfg&quot;,&quot;hfghfghfg&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 23:24:02</column>
+        </table>
+        <table name="exercise">
+            <column name="id">30</column>
+            <column name="code">q52</column>
+            <column name="total">1</column>
+            <column name="title">dsfsd</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;fdsfds&quot;,&quot;answer&quot;:[&quot;fsdf&quot;,&quot;sdfsdf&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 23:25:57</column>
+        </table>
+        <table name="exercise">
+            <column name="id">31</column>
+            <column name="code">q53</column>
+            <column name="total">1</column>
+            <column name="title">gfdg</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;dfgdfgdf&quot;,&quot;answer&quot;:[&quot;gdfg&quot;,&quot;dfgdg&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 23:28:20</column>
+        </table>
+        <table name="exercise">
+            <column name="id">32</column>
+            <column name="code">q54</column>
+            <column name="total">1</column>
+            <column name="title">dfgdf</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;gdfg&quot;,&quot;answer&quot;:[&quot;dfgdf&quot;,&quot;gdfgdfgdf&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 23:29:42</column>
+        </table>
+        <table name="exercise">
+            <column name="id">33</column>
+            <column name="code">q55</column>
+            <column name="total">1</column>
+            <column name="title">dfgdgdfg</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;dfgdfg&quot;,&quot;answer&quot;:[&quot;dfgdfg&quot;,&quot;dfgdfgdfg&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 23:44:32</column>
+        </table>
+        <table name="exercise">
+            <column name="id">34</column>
+            <column name="code">q56</column>
+            <column name="total">1</column>
+            <column name="title">dgfd</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;dfgdf&quot;,&quot;answer&quot;:[&quot;gdfg&quot;,&quot;gdfgdfg&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 23:45:37</column>
+        </table>
+        <table name="exercise">
+            <column name="id">35</column>
+            <column name="code">q57</column>
+            <column name="total">1</column>
+            <column name="title">fsdfsd</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;fsdfsdf&quot;,&quot;answer&quot;:[&quot;sdf&quot;,&quot;sdfsdfsdf&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 23:46:56</column>
+        </table>
+        <table name="exercise">
+            <column name="id">36</column>
+            <column name="code">q58</column>
+            <column name="total">1</column>
+            <column name="title">dfg</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;dfgdfg&quot;,&quot;answer&quot;:[&quot;dfg&quot;,&quot;fdgdfgdfgdf&quot;]}]</column>
+            <column name="attachment"></column>
+            <column name="create_time">2018-11-04 23:47:31</column>
+        </table>
+        <table name="exercise">
+            <column name="id">37</column>
+            <column name="code">q59</column>
+            <column name="total">1</column>
+            <column name="title">dfgd</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;fgdfgdf&quot;,&quot;answer&quot;:[&quot;gdf&quot;,&quot;gdfgdfgd&quot;]}]</column>
+            <column name="attachment">[{&quot;empty&quot;:1}]</column>
+            <column name="create_time">2018-11-04 23:48:57</column>
+        </table>
+        <table name="exercise">
+            <column name="id">38</column>
+            <column name="code">q60</column>
+            <column name="total">1</column>
+            <column name="title">dfg</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;dfgdfgd&quot;,&quot;answer&quot;:[&quot;fgdf&quot;,&quot;gdfgdfg&quot;]}]</column>
+            <column name="attachment">[&quot;{&quot;empty&quot;:0,&quot;0&quot;:&quot;c48c6b230853630b066550320645a37a.exe&quot;}&quot;]</column>
+            <column name="create_time">2018-11-04 23:49:10</column>
+        </table>
+        <table name="exercise">
+            <column name="id">39</column>
+            <column name="code">q61</column>
+            <column name="total">1</column>
+            <column name="title">hfgh</column>
+            <column name="data">[{&quot;num&quot;:&quot;1&quot;,&quot;stem&quot;:&quot;fghfgh&quot;,&quot;answer&quot;:[&quot;gfhgf&quot;,&quot;hgfhfgh&quot;]}]</column>
+            <column name="attachment">[{&quot;empty&quot;:0,&quot;0&quot;:{&quot;InstallConfig.ini&quot;:&quot;fedee4b3f048d65ccbbdf6e3c1c9c64c.ini&quot;}}]</column>
+            <column name="create_time">2018-11-04 23:51:25</column>
         </table>
         <!-- 表 total -->
         <table name="total">
             <column name="id">1</column>
-            <column name="count">3</column>
+            <column name="count">62</column>
         </table>
     </database>
 </pma_xml_export>

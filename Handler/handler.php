@@ -45,20 +45,44 @@ switch ($action) {
             history($conn);
             break;
         }
-    case 'upload':
+    default:
         {
-            upload($conn);
+            if (substr($action, 0, 18) == 'attachment_upload_') {
+                attachment_upload($conn, substr($action, 18));
+            }
             break;
         }
-    default:
-        break;
 }
-function upload($conn)
+function attachment_upload($conn, $code)
 {
 
-    $file = $_FILES;
-    sleep(3);
-    var_dump($file);
+    $files = $_FILES;
+    $attachment_arr = array();
+    $result = 1;
+    if (count($files) == 0) {
+        //当前题目没有附件
+        array_push($attachment_arr, array('empty' => 1));
+    } else {
+        $tmp_arr = array('empty' => 0);
+        $count = 0;
+        foreach ($files as $file) {
+            $arr = explode(".", $file["name"]);
+            $type = $arr[count($arr) - 1];//后缀名
+            $file_name = md5(uniqid()) . '.' . $type;
+            if (!move_uploaded_file($file["tmp_name"], "../userdata/" . $file_name))
+                $result = 0;
+            else $tmp_arr[$count] = array($file['name'] => $file_name);
+            $count++;
+        }
+        array_push($attachment_arr, $tmp_arr);
+    }
+
+    if ($result) {
+        $r = update($conn, 'exercise', "`attachment`='" . json_encode($attachment_arr) . "'", " `code`='{$code}'");
+        if ($r == 'ok')
+            echo 'ok';
+        else echo $r;
+    } else echo 'error while saving files';
 }
 
 
@@ -127,9 +151,11 @@ function publish($conn)
 {
     $code = 'q' . select($conn, 'total', 'id=1')[0]['count'];
     $date = date('Y-m-d H:i:s');
-    add($conn, 'exercise', [$code, $_POST['total'], $_POST['title'], $_POST['data'], $date]);
-    update($conn, 'total', 'count=count+1', 'id=1');
-    echo 'ok';
+    $r = add($conn, 'exercise', [$code, $_POST['total'], $_POST['title'], $_POST['data'], '', $date]);
+    if ($r == 'ok') {
+        echo $code;
+        update($conn, 'total', 'count=count+1', 'id=1');
+    } else echo 'error';
     mysqli_close($conn);
 }
 
@@ -166,51 +192,22 @@ function add($conn, $table, $arr)
     $str = implode("','", $str);
     $sql = "insert into `$table` values(DEFAULT ,'$str')";
     $res = mysqli_query($conn, $sql);
-    return $sql;
+    if ($res) return 'ok';
+    else return $sql;
 }
 
 function delete($conn, $table, $where)
 {
     $sql = "delete from `$table` where $where";
     $res = mysqli_query($conn, $sql);
-    return $sql;
+    if ($res) return 'ok';
+    else return $sql;
 }
 
 function update($conn, $table, $update, $where)
 {
     $sql = "update `$table` set $update where $where";
     $res = mysqli_query($conn, $sql);
-    return $sql;
-}
-
-//字符串转数组
-function stringToArr($str)
-{
-    $arr = explode(',', $str);
-    array_pop($arr);//弹出末尾逗号
-    return $arr;
-}
-
-//弹出字符串数组中某元素，如：1,2,3,4,5,
-function stringArrPop($str, $target)
-{
-    //校验
-    if (inStringArr($str, $target)) {
-        $arr = explode(',', $str);
-        array_pop($arr);//弹出末尾逗号
-        array_splice($arr, array_search($target, $arr), 1);
-        if (count($arr) == 0) return '';
-        else return implode(',', $arr) . ',';//勿遗漏末位逗号
-    } else {
-        //数组中不存在目标元素
-        return -1;
-    }
-
-}
-
-//在字符串数组中进行查找
-function inStringArr($str, $target)
-{
-    $arr = explode(',', $str);
-    return in_array($target, $arr);
+    if ($res) return 'ok';
+    else return $sql;
 }
