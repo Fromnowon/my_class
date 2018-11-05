@@ -51,7 +51,7 @@ $(function () {
         } else {
             //删除files数组数据
             files.splice(parseInt($(this).parents('.exercise_div').find('.exercise_num').text()) - 1, 1);
-            console.log(files);
+            //console.log(files);
             //重新处理题目序号
             var next = $(this).parents('.exercise_div').eq(0).next();//获取下一题div
             while (next.hasClass('exercise_div')) {
@@ -90,7 +90,7 @@ $(function () {
             title: $('.title').val()
         }, function (msg) {
             //console.log(msg);
-            if (msg != 'error') {
+            if (!msg.error) {
                 //alert('生成题组成功！');
                 //完成上传文字信息
                 //开始上传附件
@@ -149,7 +149,7 @@ $(function () {
                 }
 
             } else {
-                alert(msg);
+                alert(msg.data);
                 console.log(msg);
             }
         })

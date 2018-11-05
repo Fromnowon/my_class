@@ -101,7 +101,7 @@ function pull_history(page) {
             }
             if (page == 1) {
                 $('.page_prev').replaceWith("<span class='page_prev'>上一页</span>");
-            }else {
+            } else {
                 $('.page_prev').replaceWith("<a href='javascript:void(0)' class='page_prev' onclick='page_prev(this)'>上一页</a>");
             }
         }
@@ -113,13 +113,15 @@ function pull_history(page) {
                 switch (index) {
                     case 'id':
                         html += ('<tr><td>' + val + '</td>');
-                        code = val - 1;//题组号
+                        break;
+                    case 'code':
+                        code = val;//题组号
                         break;
                     case 'title':
                         html += ('<td>' + val + '</td>');
                         break;
                     case 'create_time':
-                        html += ('<td>' + val + '</td>' + '<td><a class="btn btn-primary" target="_blank" href="' + './main/exercise.php?code=q' + code + '">打开</a>&nbsp;<a class="btn btn-success analysis_btn" value="q' + code + '" href="javascript:void(0)">统计</a></td>' + '</tr>');
+                        html += ('<td>' + val + '</td>' + '<td><a class="btn btn-primary" target="_blank" href="' + './main/exercise.php?code=' + code + '">打开</a>&nbsp;<a class="btn btn-success analysis_btn" value="q' + code + '" href="javascript:void(0)">统计</a></td>' + '</tr>');
                         break;
                 }
             })

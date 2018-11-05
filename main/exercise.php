@@ -49,6 +49,8 @@ if (isset($_GET['code'])) {
                 </tr>
             </table>
         </div>
+        <div class="attachment_div">
+        </div>
     </div>
     <div class="insert_flag hide"></div>
     <div>

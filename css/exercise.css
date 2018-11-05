@@ -39,6 +39,17 @@
     cursor: no-drop;
 }
 
+.attachment_file {
+    display: inline-block;
+    text-align: center;
+}
+
+.attachment_file img {
+    height: 100px;
+    margin: 5px 10px;
+    box-shadow: 0 0 3px 3px rgba(169, 169, 169, 0.51);
+}
+
 .loading {
     position: absolute;
     width: 100%;

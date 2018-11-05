@@ -1,7 +1,10 @@
 $(function () {
     //拉取题目数据
     ajaxPost('json', '../Handler/handler.php?action=pull', {code: $('body').attr('code')}, function (msg) {
+        //console.log(msg);
+        //读取标题
         $('.title').text(msg[1]);
+        //读取题干
         $.each(JSON.parse(msg[0]), function (index, json) {
             $('.insert_flag').before($('.default').clone().removeClass('e0').addClass('e' + (parseInt(index) + 1)));
             var clone = $('.e' + (parseInt(index) + 1));
@@ -25,6 +28,26 @@ $(function () {
             })
             clone.removeClass('hide default');
         })
+        //读取附件
+        //console.log(JSON.parse(msg[2]))
+        var img_arr = ['png', 'jpg', 'jpeg', 'bmp', 'gif'];
+        $.each(JSON.parse(msg[2]), function (num, value) {
+            if (!value.empty) {
+                delete value['empty'];
+                num = parseInt(num) + 1;
+                $.each(value, function (index, item) {
+                    //console.log(item);
+                    for (var key in item)
+                        console.log(item[key].substr(item[key].lastIndexOf('.') + 1));
+                    if ($.inArray(((item[key].substr(item[key].lastIndexOf('.') + 1)).toLowerCase()), img_arr) != -1) {
+                        $('.exercise').eq(num).find('.attachment_div').append("<div class='attachment_file'><img src='../userdata/" + item[key] + "'/><br><span>" + key + "</span></div>");
+                    }else {
+                        $('.exercise').eq(num).find('.attachment_div').append("<div class='attachment_file'><img src='../img/file_default.png'/><br><span>" + key + "</span></div>");
+                    }
+                })
+            }
+        })
+
         $('.exercise_post').removeClass('hide');
         $('.default').remove();
         $('.loading').fadeOut();

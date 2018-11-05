@@ -57,7 +57,9 @@ function attachment_upload($conn, $code)
 {
 
     $files = $_FILES;
-    $attachment_arr = array();
+    $r = select($conn, 'exercise', " `code`='{$code}'")[0]['attachment'];
+    if ($r == '') $attachment_arr = array();
+    else $attachment_arr = json_decode($r, true);
     $result = 1;
     if (count($files) == 0) {
         //当前题目没有附件
@@ -71,7 +73,7 @@ function attachment_upload($conn, $code)
             $file_name = md5(uniqid()) . '.' . $type;
             if (!move_uploaded_file($file["tmp_name"], "../userdata/" . $file_name))
                 $result = 0;
-            else $tmp_arr[$count] = array($file['name'] => $file_name);
+            else $tmp_arr[$count] = array('file' . ($count + 1) . '.' . $type => $file_name);
             $count++;
         }
         array_push($attachment_arr, $tmp_arr);
@@ -143,6 +145,7 @@ function pull($conn)
     $result = [];
     array_push($result, $r['data']);
     array_push($result, $r['title']);
+    array_push($result, $r['attachment']);
     echo json_encode($result, JSON_UNESCAPED_UNICODE);
     mysqli_close($conn);
 }
@@ -155,8 +158,13 @@ function publish($conn)
     if ($r == 'ok') {
         echo $code;
         update($conn, 'total', 'count=count+1', 'id=1');
-    } else echo 'error';
+    } else echo return_result(1, $r);
     mysqli_close($conn);
+}
+
+function return_result($flag, $data)
+{
+    return json_encode(array('error' => $flag, 'data' => $data));
 }
 
 //--------------------PHP TOOL------------------------//
