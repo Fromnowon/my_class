@@ -35,15 +35,28 @@ $(function () {
             if (!value.empty) {
                 delete value['empty'];
                 num = parseInt(num) + 1;
+                var exercise = $('.exercise').eq(num);
+                if (exercise.find('.attachment').hasClass('hide')) exercise.find('.attachment').removeClass('hide');
                 $.each(value, function (index, item) {
                     //console.log(item);
                     for (var key in item)
-                        console.log(item[key].substr(item[key].lastIndexOf('.') + 1));
-                    if ($.inArray(((item[key].substr(item[key].lastIndexOf('.') + 1)).toLowerCase()), img_arr) != -1) {
-                        $('.exercise').eq(num).find('.attachment_div').append("<div class='attachment_file'><img src='../userdata/" + item[key] + "'/><br><span>" + key + "</span></div>");
-                    }else {
-                        $('.exercise').eq(num).find('.attachment_div').append("<div class='attachment_file'><img src='../img/file_default.png'/><br><span>" + key + "</span></div>");
-                    }
+                        //console.log(item[key].substr(item[key].lastIndexOf('.') + 1));
+                        if ($.inArray(((item[key].substr(item[key].lastIndexOf('.') + 1)).toLowerCase()), img_arr) != -1) {
+                            var src = '../userdata/' + item[key];
+                            exercise.find('.attachment_div').append("<div class='attachment_file'>" + "<div class='hide attachment_src'>../userdata/" + item[key] + "</div>" + "<img src='" + src + "'/><br><span>" + key + "</span></div>");
+                            //添加控件
+                            exercise.find('.attachment_file').append("<div class='attachment_controller'><a href='" + src + "' download='" + key + "'><i class='fa fa-download fa-lg' title='下载附件'></i></a>&nbsp;&nbsp;&nbsp;<a href='javascript:void(0)' onclick='attachment_detail($(this))'><i class='fa fa-search-plus fa-lg' title='查看详情'></i></a></div>");
+                        } else {
+                            exercise.find('.attachment_div').append("<div class='attachment_file'><img src='../img/file_default.png'/><br><span>" + key + "</span></div>");
+                            //添加控件
+                            exercise.find('.attachment_file').append("<div class='attachment_controller'><i class='fa fa-download fa-lg' title='下载附件'></i>&nbsp;&nbsp;&nbsp;<i class='fa fa-search-plus fa-lg' title='查看详情'></i></div>");
+
+                        }
+                    $('.attachment_file').off().hover(function () {
+                        $(this).find('.attachment_controller').stop().fadeIn();
+                    }, function () {
+                        $(this).find('.attachment_controller').stop().fadeOut();
+                    })
                 })
             }
         })
@@ -115,6 +128,17 @@ $(function () {
 
 
 })
+
+function attachment_detail(obj) {
+    var src = obj.parents('.attachment_file').find('.attachment_src').text();
+    $(this).html("<img src='" + src + "'/>");
+    $('.attachment_detail_div').fadeIn(function () {
+        $(this).off().click(function () {
+            $(this).fadeOut();
+            $(this).html('');
+        })
+    })
+}
 
 function ajaxPost(type, url, data, fun) {
     $.ajax({

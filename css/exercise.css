@@ -39,7 +39,14 @@
     cursor: no-drop;
 }
 
+.attachment_div {
+    border: 1px solid whitesmoke;
+}
+
 .attachment_file {
+    position: relative;
+    padding: 10px;
+    margin-right: 10px;
     display: inline-block;
     text-align: center;
 }
@@ -48,6 +55,38 @@
     height: 100px;
     margin: 5px 10px;
     box-shadow: 0 0 3px 3px rgba(169, 169, 169, 0.51);
+}
+
+.attachment_controller {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}
+
+.attachment_controller a {
+    color: black;
+}
+
+.attachment_detail_div {
+    display: none;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.31);
+}
+
+.attachment_detail_div img {
+    position: absolute;
+    height: 80%;
+    left: 0;
+    right: 0;
+    top: 10%;
+    /*bottom: 0;*/
+    margin: auto;
+    box-shadow: 5px 5px 20px 5px rgba(90, 90, 90, 0.51);
 }
 
 .loading {

@@ -49,7 +49,13 @@ if (isset($_GET['code'])) {
                 </tr>
             </table>
         </div>
-        <div class="attachment_div">
+        <div class="attachment hide">
+            <div>
+                <hr>
+                <p>附件：</p>
+            </div>
+            <div class="attachment_div">
+            </div>
         </div>
     </div>
     <div class="insert_flag hide"></div>
@@ -73,6 +79,11 @@ if (isset($_GET['code'])) {
         <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
         <button class="btn btn-primary post disable_btn" disabled="disabled">确认</button>
     </div>
+</div>
+
+<!--附件详情-->
+<div class="attachment_detail_div">
+
 </div>
 </body>
 </html>
