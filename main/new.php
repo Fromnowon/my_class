@@ -29,34 +29,44 @@ if ($_SESSION['validate'] != 1) {
 </div>
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span3">
+        <div class="span2">
+            <div class="bar_header" style="position: fixed;margin-top: 20px">
+                <p style="font-weight: bold;">题数：
+                    <span class="exercise_total" style="color: green">1</span>
+                    <i class="fa fa-arrow-down pull-right" style="margin-top: 3px;cursor: pointer" title="列表向上滚动"></i>
+                    <i class="fa fa-arrow-up pull-right" style="margin-right: 10px;margin-top: 3px;cursor: pointer"
+                       title="列表向下滚动"></i>
+                </p>
+
+            </div>
             <div class="nav_bar">
-                <div class="accordion" id="accordion_nav">
-                    <!--添加折叠栏-->
-                    <div class="accordion-group default hide" num="0">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_nav"
-                               href="#collapse0">
-                                content0
-                            </a>
-                        </div>
-                        <div id="collapse0" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                content0
+                <div>
+                    <div class="accordion" id="accordion_nav">
+                        <!--添加折叠栏-->
+                        <div class="accordion-group default hide" num="0">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_nav"
+                                   href="#collapse0">
+                                    content0
+                                </a>
+
+                            </div>
+                            <div id="collapse0" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    content0
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="span9">
+        <div class="span10">
             <div class="main">
                 <div style="margin-top: 20px">
                     <span style="font-size: 26px">题组名称：</span>
                     <input type="text" class="title">
                     <br>
-                    <br>
-                    <p style="font-weight: bold">题目数量：<span class="exercise_total" style="color: green">1</span></p>
                 </div>
                 <div class="exercise">
                     <div class="exercise_default exercise_div" style="display:none;margin-bottom:20px;padding: 10px">
@@ -68,7 +78,7 @@ if ($_SESSION['validate'] != 1) {
                             </tr>
                             <tr>
                                 <td style="width: 30px;text-align: center" valign="top" rowspan="2"><span
-                                            class="exercise_num">0</span>.
+                                            class="exercise_num" value="0">0</span>.
                                 </td>
                                 <td class="exercise_content"><textarea
                                             style="margin-left: 20px;width: 90%;height: 80px"></textarea>
@@ -113,7 +123,7 @@ if ($_SESSION['validate'] != 1) {
                                         </div>
                                         <input class="span2" id="file_upload_input" type="file" name="file[]" multiple
                                                style="display: none">
-                                        <button class="btn btn-info file_upload_btn">选择文件</button>
+                                        <button class="btn btn-default file_upload_btn">选择文件</button>
                                     </div>
                                 </td>
                             </tr>
@@ -129,7 +139,7 @@ if ($_SESSION['validate'] != 1) {
                             </tr>
                             <tr>
                                 <td style="width: 30px;text-align: center" valign="top" rowspan="2"><span
-                                            class="exercise_num">1</span>.
+                                            class="exercise_num" value="1">1</span>.
                                 </td>
                                 <td class="exercise_content">
                                     <textarea style="margin-left: 20px;width: 90%;height: 80px"></textarea>
@@ -174,7 +184,7 @@ if ($_SESSION['validate'] != 1) {
                                         </div>
                                         <input class="span2" id="file_upload_input" type="file" name="file[]" multiple
                                                style="display: none">
-                                        <button class="btn btn-info file_upload_btn">选择文件</button>
+                                        <button class="btn btn-default file_upload_btn">选择文件</button>
                                     </div>
                                 </td>
                             </tr>

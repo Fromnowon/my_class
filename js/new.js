@@ -5,6 +5,26 @@ $(function () {
 
     //侧边工具栏尺寸
     set_toolbar();
+    //箭头事件
+    $('.fa-arrow-down').click(function () {
+        $('.nav_bar').animate({scrollTop: "+=100"}, 'fast');
+    });
+    $('.fa-arrow-up').click(function () {
+        $('.nav_bar').animate({scrollTop: "-=100"}, 'fast');
+    });
+    //导航栏hover事件
+    $('.nav_bar').hover(function () {
+        if (hasScrollbar())
+            $('body').addClass('no_scroll');
+
+    }, function () {
+        $('body').removeClass('no_scroll');
+    });
+
+    //是否有滚动条
+    function hasScrollbar() {
+        return document.body.scrollHeight > (window.innerHeight || document.documentElement.clientHeight);
+    }
 
     //导航栏数据填充
     nav_handler();
@@ -14,9 +34,39 @@ $(function () {
         var num = $('.exercise_div').length - 1;
         var exercise = $('.exercise_div').eq(num);
         clone.attr('num', num);
-        clone.find('.accordion-toggle').attr('href', '#collapse' + num).text('题目' + num);
-        clone.find('.accordion-body').attr('id', 'collapse' + num).text('这里是小题详情');
+        clone.find('.accordion-toggle').attr('href', '#collapse' + num).html('题目' + num + '&nbsp;<i class="fa fa-question" style="color: red"></i><i title="跳到此题" class="fa fa-search pull-right" style="margin-top: 3px;display: none"></i>');
+        clone.find('.accordion-body').attr('id', 'collapse' + num).children().html(
+            "<div class='container-fluid' style='padding: 0;margin: 0'><div class='row-fluid'>" +
+            "<span class='span6'>题干：<i class='fa fa-remove' style='color: red'></i></span><span class='span6 answer_count'>选项：<span style='color: red'>0</span></span>" +
+            "<div class='row-fluid'><span class='span6'>答案：<i class='fa fa-remove'></i></span><span class='span6'>附件：<i class='fa fa-remove'></i></span></div>"
+            + "</div></div>");
         $('#accordion_nav').append(clone);
+        $('.nav_bar').animate({scrollTop: "+=100"}, 'fast');
+        var nav_item = $('.accordion-group[num=' + num + ']');
+        //绑定hover事件
+        nav_item.find('.accordion-toggle').hover(function () {
+            $(this).find('.fa-search').stop().fadeIn();
+            if (!$(this).hasClass('nav_active'))
+                $(this).css('background', 'whitesmoke');
+        }, function () {
+            $(this).find('.fa-search').stop().fadeOut();
+            if (!$(this).hasClass('nav_active'))
+                $(this).css('background', '');
+        })
+        //绑定点击事件
+        nav_item.find('.accordion-toggle').click(function () {
+            $(this).css('background', '');
+            $('.accordion-toggle').removeClass('nav_active');
+            $(this).addClass('nav_active');
+        })
+        //题目跳转
+        nav_item.find('.fa-search').click(function (e) {
+            $('html,body').animate({scrollTop: $('.exercise_num[value=' + num + ']').offset().top - 50}, 500);
+            $(this).parents('.accordion-group').find('.accordion-toggle').trigger('click');
+            if ($(this).parents('.accordion-group').find('.in')) {
+                e.stopPropagation();//若当前为活动选项卡，则不收起
+            }
+        })
     }
 
     //增加备选答案
@@ -55,12 +105,15 @@ $(function () {
     //新增题目
     container.on('click', '.add_exercise', function () {
         $(this).parent().before($('.exercise_default').clone()).prev().removeClass('exercise_default').css('display', 'block');
-        $(this).parent().prev().find('.exercise_num').text(parseInt($(this).parent().prevAll('div').eq(1).find('.exercise_num').text()) + 1);
+        var num = parseInt($(this).parent().prevAll('div').eq(1).find('.exercise_num').text()) + 1;
+        $(this).parent().prev().find('.exercise_num').attr('value', num).text(num);
         $('.exercise_total').text(parseInt($('.exercise_total').text()) + 1);
         files.push({});
         //更新导航栏
         nav_handler();
-    })
+        //滚到底部
+        $('html,body').stop().animate({scrollTop: $('.publish').offset().top}, 800);
+    });
 
     //删除题目
     container.on('click', '.del_exercise', function () {
@@ -83,20 +136,24 @@ $(function () {
     })
 
     function nav_del(num) {
-        console.log(num);
+        //console.log(num);
         var item = $('.accordion-group').eq(num);//待删除元素
+        var tmp = item;
         item.fadeOut();
         while (item.next().hasClass('accordion-group')) {
             item.next().attr('num', num);
             item.next().find('.accordion-toggle').attr('href', '#collapse' + num).text('题目' + num);
             item.next().find('.accordion-body').attr('id', 'collapse' + num);
+            item = item.next();
+            num++;
         }
-        item.remove();
+        tmp.remove();
     }
 
 
     //发布题组
     $('.publish').click(function () {
+        var flag = 1;
         $('.progress').css({display: ''});
         var data = new Array();
         $('.exercise_div').each(function () {
@@ -106,9 +163,17 @@ $(function () {
                     stem: $(this).find('.exercise_content').find('textarea').val(),
                     right_answer: $(this).find('.right_answer').attr('num')
                 };
+                if (content.num.length == 0 || content.stem.length == 0) {
+                    flag = 0;
+                    return;
+                }
                 var answer = new Array();
                 $(this).find('.exercise_answer').each(function () {
                     if (!$(this).hasClass('choose_default')) {
+                        if ($(this).find('input').val().length == 0) {
+                            flag = 0;
+                            return;
+                        }
                         answer.push($(this).find('input').val());
                     }
                 })
@@ -116,6 +181,12 @@ $(function () {
                 data.push(content);
             }
         })
+        if (!flag) {
+            $('.progress').css({display: 'none'});
+            //导航条定位
+            console.log('校验失败！');
+            return;//检验不通过
+        }
         ajaxPost('text', '../Handler/handler.php?action=publish', {
             data: JSON.stringify(data),
             total: $('.exercise_total').text(),
@@ -256,6 +327,9 @@ function set_toolbar() {
     $('.nav_bar').css({
         width: $('.nav_bar').parent().width() - 20,
         top: 20
+    });
+    $('.bar_header').css({
+        width: $('.bar_header').parent().width() - 20
     })
 }
 
