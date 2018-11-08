@@ -121,7 +121,7 @@ function pull_history(page) {
                         html += ('<td>' + val + '</td>');
                         break;
                     case 'create_time':
-                        html += ('<td>' + val + '</td>' + '<td><a class="btn btn-primary" target="_blank" href="' + './main/exercise.php?code=' + code + '">打开</a>&nbsp;<a class="btn btn-success analysis_btn" value="q' + code + '" href="javascript:void(0)">统计</a></td>' + '</tr>');
+                        html += ('<td>' + val + '</td>' + '<td><a class="btn btn-primary" target="_blank" href="' + './main/exercise.php?code=' + code + '">打开</a>&nbsp;<a class="btn btn-success analysis_btn" value="' + code + '" href="javascript:void(0)">统计</a></td>' + '</tr>');
                         break;
                 }
             })

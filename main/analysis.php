@@ -8,6 +8,7 @@
     <title>结果分析页</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="../css/analysis.css">
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.js"></script>

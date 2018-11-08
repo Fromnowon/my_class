@@ -1,7 +1,7 @@
 $(function () {
     //拉取题目数据
     ajaxPost('json', '../Handler/handler.php?action=pull', {code: $('body').attr('code')}, function (msg) {
-        //console.log(JSON.parse(msg[0]));
+        console.log(JSON.parse(msg[0]));
         $.each(JSON.parse(msg[0]), function (index, element) {
             //console.log(element);
             attach_data(index, element);

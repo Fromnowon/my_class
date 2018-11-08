@@ -191,20 +191,17 @@ if ($_SESSION['validate'] != 1) {
                         </table>
                         <div style="margin-top:20px;height:10px;border-bottom:1px solid darkgray"></div>
                     </div>
-
-                    <div>
-                        <br><br>
-                        <button class="btn btn-success add_exercise"><i class="icon-plus icon-white"></i> 增加题目</button>
-                    </div>
+                    <div class="insert_flag"></div>
                 </div>
-                <div>
-                    <button class="btn btn-primary btn-large pull-right publish">确认发布</button>
-                </div>
-                <br><br><br>
+            </div>
+            <div>
+                <button class="btn btn-success add_exercise"><i class="icon-plus icon-white"></i> 增加题目</button>
+                <br>
+                <button class="btn btn-primary btn-large publish pull-right">确认发布</button>
             </div>
         </div>
     </div>
 </div>
-
+<br><br>
 </body>
 </html>
