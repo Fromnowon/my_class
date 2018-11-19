@@ -1,4 +1,7 @@
 $(function () {
+    //padding
+    $('.main_btn').css({'padding-top': $(window).height() * 0.4});
+
     $('.new').click(function () {
         $('#psw').modal({backdrop: "static"});
     });

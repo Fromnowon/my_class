@@ -8,6 +8,7 @@
     <title>题目发布</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="css/cloud.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/index.js"></script>
@@ -26,12 +27,16 @@
         }
     </style>
 </head>
-<body>
+<body style="padding: 0">
+<div class="satic-area">
+    <div class="dynamic-area1"></div>
+    <div class="dynamic-area2"></div>
+</div>
 <div class="container-fluid">
     <div style="position: absolute;left: 50px;top:50px">
         <p style="color: red;font-weight: bold;font-size: 20px">验证码为：test</p>
     </div>
-    <div class="container-fluid" style="padding-top: 20%">
+    <div class="container-fluid main_btn">
         <div style="text-align: center">
             <button class="btn btn-primary btn-large new">发布题组</button>
             <br><br>
